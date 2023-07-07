@@ -39,7 +39,15 @@ body {
 	position: relative;
 	background: linear-gradient(to bottom, #FFEAF8 20%, #DDFFD6, #CCE5FF);
 	margin: auto;
-	overflow: hidden;
+}
+
+@media (min-width: 1500px) {
+	.gameMode #content {
+		transform:scale(2) !important;
+		transform-origin:top !important;
+		width:50% !important;
+		height:50% !important;
+	}
 }
 
 #content404 {
@@ -90,7 +98,6 @@ button {
 #footer {
 	font-size: 16px;
 	width: 100%;
-	float: left;
 	margin-top: 20px;
 	margin-bottom: 30px;
 	color: #FFFFFF;
@@ -388,13 +395,49 @@ button {
 #textbox1 {
 	width: 400px;
 	text-align: left;
-	animation: textbox 1.4s infinite alternate ease-in-out;
+	animation: textbox 1.3s infinite alternate ease-in-out;
 }
 
 #textbox2 {
-	width: 550px;
+	width: 325px;
 	text-align: left;
+	animation: textbox 2.1s infinite alternate ease-in-out;
+}
+
+#textbox3 {
+	width: 425px;
+	text-align: center;
 	animation: textbox 3s infinite alternate ease-in-out;
+}
+
+#textbox3Inner1 {
+	width: 400px;
+	text-align: center;
+	margin: 5px;
+}
+
+#textbox3Inner2 {
+	width: 400px;
+	text-align: center;
+	margin: 5px;
+}
+
+#textbox3Inner3 {
+	width: 400px;
+	text-align: center;
+	margin: 5px;
+}
+
+#textbox4 {
+	width: 275px;
+	text-align: center;
+	animation: textbox 1s infinite alternate ease-in-out;
+}
+
+@media (min-width: 1500px) {
+	.gameMode #textbox4 {
+		display:none !important;
+	}
 }
 
 /* textbox containers */
@@ -436,6 +479,36 @@ button {
 .containerBig {
 	width: 400px;
 	max-width:100%;
+}
+
+.server {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.serverBanner {
+	object-fit: cover;
+	object-position: top;
+	width: 160px;
+	height: 321px;
+}
+
+.connect {
+	display: inline-block;
+	width: 146px;
+	padding: 5px;
+	margin-top: 5px;
+	border: solid 2px #60318E;
+	background: #CCE5FF;
+	border-radius: 5px;
+	color: #60318E;
+	box-shadow: 1px 1px transparent;
+	transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.connect:hover {
+	transform: translate(-2px,-2px);
+	box-shadow: 2px 2px #60318E;
 }
 
 /* desktop buttons */
