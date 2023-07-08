@@ -434,10 +434,8 @@ button {
 	animation: textbox 1s infinite alternate ease-in-out;
 }
 
-@media (min-width: 1500px) {
-	.gameMode #textbox4 {
-		display:none !important;
-	}
+.gameMode #textbox4 {
+	display:none !important;
 }
 
 /* textbox containers */
