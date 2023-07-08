@@ -141,6 +141,10 @@ button {
 	animation-timing-function: ease-in-out;
 }
 
+.gameMode .titleFloat {
+	animation: unset !important;
+}
+
 @keyframes titleFloat {
 	0% {
 		transform: translate(0px, 0px);
@@ -232,6 +236,10 @@ button {
 	border: solid 2px #60318E;
 	animation-timing-function: ease-in-out;
 	max-width: calc(100% - 44px);
+}
+
+.gameMode .textbox {
+	animation: unset !important;
 }
 
 .hidden {
