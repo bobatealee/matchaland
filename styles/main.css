@@ -560,7 +560,7 @@ li {
 	margin-bottom:12px;
 }
 
-.textboxContent *:last-child {
+.textboxContent p:last-child, .textboxContent ul:last-child {
 	margin-bottom:0px !important;
 }
 
