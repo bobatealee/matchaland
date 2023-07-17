@@ -2,70 +2,68 @@
 <html id="html">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="widdiv=device-widdiv, initial-scale=1">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<title>matchaland</title>
+		<title>matchaland.net</title>
 
 		<link rel="stylesheet" href="https://matchaland.net/styles/main.css">
 		<script src="https://matchaland.net/scripts/main.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+		<meta property="og:title" content="matchaland.net">
+		<meta property="og:image" content="https://matchaland.net/images/matcha.png">
+		<meta property="og:site_name" content="matchaland.net">
 	</head>
 
-	<body id="body">
-		<div id="content404">
-			<div id="contentInner">
-				<div id="title">
-					<span class="titleLetter titleFloat">
-						<span class="titleOutline titleShake404">a</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.1s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.05s;">r</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.2s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.1s;">e</span>
-					</span>
-					<span class="titleLetter titleSpace"></span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.3s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.15s;">y</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.4s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.2s;">o</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.5s;">
-						<span class="titleOutline titleShake404">u</span>
-					</span>
-					<span class="titleLetter titleSpace"></span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.6s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.05s;">l</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.7s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.1s;">o</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.8s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.15s;">s</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:0.9s;">
-						<span class="titleOutline titleShake404" style="animation-delay:0.2s;">t</span>
-					</span>
-					<span class="titleLetter titleFloat" style="animation-delay:1s;">
-						<span class="titleOutline titleShake404">?</span>
-					</span>
+	<body>
+		<div id="container">
+			<div id="sectionHeader">
+				<div id="logo" class="part">
+					<img src="images/logo.png" />
 				</div>
+				<div id="nav" class="part">
+					<a href="/" class="navButton" draggable="false"><div class="textOutline">Home</div></a>
+					<a href="rules" class="navButton" draggable="false"><div class="textOutline">Rules</div></a>
+					<a href="servers" class="navButton" draggable="false"><div class="textOutline">Servers</div></a>
+					<a href="credits" class="navButton" draggable="false"><div class="textOutline">Credits</div></a>
+				</div>
+			</div>
 
-				<div id="textboxes" style="margin-top:10px;">
-					<div id="textbox404" class="textbox">
-						<div class="textboxHeader">
-							<span class="textboxHeaderText">404 :-(</span>
-							<button class="pixel windowButton windowButtonInactive windowButtonClose"></button>
-							<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
+			<div id="sectionDivider">
+				<div id="dividerContent" class="part">
+					<div id="dividerButton" class="textOutline">Links ▼</div>
+				</div>
+			</div>
+
+			<div id="sectionCenter">
+				<div id="page" class="part">
+					<div class="textbox">
+						<div class="textboxTitle">
+							<div class="textOutline">Page not found</div>
 						</div>
-						<div class="textboxText">
-							<a href="https://matchaland.net">take me home!</a>
+						<div class="textboxContent">
+							That's not good! Click <a href="/">here</a> to go back home.
 						</div>
 					</div>
+
+					<marquee class="textbox" style="text-align:center;">
+						<img src="favicon-32x32.png" height="30" />
+						<img src="images/logo.gif" width="200" />
+						<img src="favicon-32x32.png" height="30" />
+						<img src="images/logo.gif" width="200" />
+						<img src="favicon-32x32.png" height="30" />
+						<img src="images/logo.gif" width="200" />
+						<img src="favicon-32x32.png" height="30" />
+					</marquee>
 				</div>
+			</div>
+
+			<div id="sectionFooter">
+				<div id="footerLeft" class="part"></div>
+				<div id="footerCenter" class="part"></div>
+				<div id="footerContent">© 2020-2023 boba</div>
+				<div id="footerRight" class="part"></div>
 			</div>
 		</div>
 	</body>
