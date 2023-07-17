@@ -540,7 +540,7 @@ li {
 
 .textboxContent br {
 	content:"";
-	margin:0.25em;
+	margin:6px;
 	display:block;
 }
 
