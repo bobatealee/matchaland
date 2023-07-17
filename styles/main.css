@@ -73,6 +73,17 @@ li {
 	filter:drop-shadow(5px 5px rgba(0, 0, 0, 0.75));
 }
 
+@media (min-width: 1500px) {
+	.gameMode #container {
+		transform:scale(2) !important;
+		transform-origin:0 0 !important;
+		width:50% !important;
+		height:50% !important;
+		margin:0px !important;
+	}
+}
+
+
 .part {
 	display:flex;
 	padding:10px;
@@ -619,4 +630,8 @@ li {
 
 .connectButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
+}
+
+.gameMode .connectButton.external {
+	display:none !important;
 }

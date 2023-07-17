@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	if (gameMode == 1) {
 		document.body.classList.add("gameMode");
+		document.querySelectorAll(".external").forEach((link) => {
+			link.removeAttribute("href");
+		});
 	}
 });
 
