@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			siteLink.href = siteLink.href+"?game=1"
 		});
 
-		/*document.querySelectorAll(".external").forEach((link) => {
+		document.querySelectorAll(".external").forEach((link) => {
 			link.removeAttribute("href");
-		});*/
+		});
 	}
 });
 
