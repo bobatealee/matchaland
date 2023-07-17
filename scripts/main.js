@@ -25,6 +25,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 });
 
+// preload images
+new Image().src = "/images/background.png";
+new Image().src = "/images/logo.png";
+new Image().src = "/images/backgroundLogo.png";
+new Image().src = "/images/backgroundNavSpacer.png";
+new Image().src = "/images/matchaHeader.png";
+new Image().src = "/images/backgroundDividerLeft.png";
+new Image().src = "/images/backgroundDivider.png";
+new Image().src = "/images/backgroundDividerRight.png";
+new Image().src = "/images/backgroundSidebar.png";
+new Image().src = "/images/backgroundPage.png";
+new Image().src = "/images/backgroundTextboxTitle.png";
+new Image().src = "/images/listDot.png";
+new Image().src = "/images/backgroundFooterLeft.png";
+new Image().src = "/images/backgroundFooter.png";
+new Image().src = "/images/backgroundFooterRight.png";
+
 function dividerToggle() {
 	if (document.getElementById("sidebar").classList.contains("show")) {
 		document.getElementById("sidebar").classList.remove("show");

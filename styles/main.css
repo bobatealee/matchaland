@@ -30,7 +30,7 @@ html, body {
 }
 
 body {
-	background-image:url(../images/background.png);
+	background:url(../images/background.png) #1F1F1F;
 	margin:50px 25px;
 }
 
@@ -54,9 +54,7 @@ li {
 
 .textOutline {
 	position:relative;
-	background:transparent;
-	z-index:0;
-	outline:0;
+	z-index:1;
 }
 
 .textOutline:before {
@@ -272,9 +270,15 @@ li {
 	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
 }
 
+@media (max-width:850px) {
+	.navButton:hover {
+		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+		box-shadow:-1px -1px #000000, 1px 1px #4B5466;
+	}
+}
+
 .navButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #4B5466;
-	color:#FF9600;
 }
 
 .navButton:after {
@@ -387,6 +391,12 @@ li {
 }
 
 @media (max-width:850px) {
+	#dividerButton:hover {
+		text-shadow:unset !important;
+	}
+}
+
+@media (max-width:850px) {
 	#dividerButton {
 		display:inline-block !important;
 	}
@@ -477,6 +487,13 @@ li {
 	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
 }
 
+@media (max-width:850px) {
+	.sidebarButton:hover {
+		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+		box-shadow:-1px -1px #000000, 1px 1px #495263;
+	}
+}
+
 .sidebarButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #495263;
 }
@@ -538,14 +555,13 @@ li {
 	font-size:24px;
 }
 
-.textboxContent br {
-	content:"";
-	margin:6px;
-	display:block;
+.textboxContent p, .textboxContent ul {
+	margin-top:0px;
+	margin-bottom:12px;
 }
 
-.gameMode .textboxContent br {
-	margin:10px !important;
+.textboxContent *:last-child {
+	margin-bottom:0px !important;
 }
 
 .textboxContent a {
@@ -555,6 +571,13 @@ li {
 
 .textboxContent a:hover {
 	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+}
+
+@media (max-width:850px) {
+	.textboxContent a:hover {
+		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+		color:#AFBCDC;
+	}
 }
 
 .textboxContent a:active {
@@ -642,6 +665,13 @@ li {
 	align-items:center;
 	flex-direction:column;
 	margin:0px 2px;
+}
+
+.serverImage {
+	width:160px;
+	height:354px;
+	background-color:#343848;
+	border-radius:3px;
 }
 
 .connectButton {
