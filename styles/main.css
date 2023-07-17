@@ -670,6 +670,6 @@ li {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
 }
 
-.gameMode .connectButton.external {
+.gameMode .connectButton {
 	display:none !important;
 }
