@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 	if (gameMode == 1) {
 		document.body.classList.add("gameMode");
+
+		document.querySelectorAll(".siteLink").forEach((siteLink) => {
+			siteLink.href = siteLink.href+"?game=1"
+		});
+
 		/*document.querySelectorAll(".external").forEach((link) => {
 			link.removeAttribute("href");
 		});*/
