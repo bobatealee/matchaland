@@ -54,7 +54,7 @@ li {
 .textOutline:before {
 	content:attr(outline);
 	position:absolute;
-	-webkit-text-stroke:3px #000000;
+	-webkit-text-stroke:5px #000000;
 	z-index:-1;
 }
 
@@ -65,12 +65,6 @@ li {
 	filter:drop-shadow(5px 5px rgba(0, 0, 0, 0.75));
 }
 
-@media (max-width:850px) {
-	#container {
-		filter:unset !important;
-	}
-}
-
 @media (min-width: 1500px) {
 	.gameMode #container {
 		transform:scale(2) !important;
@@ -78,6 +72,12 @@ li {
 		width:50% !important;
 		height:50% !important;
 		margin:0px !important;
+	}
+}
+
+@media (max-width:850px) {
+	#container {
+		filter:unset !important;
 	}
 }
 
@@ -138,6 +138,13 @@ li {
 	position:relative;
 }
 
+.gameMode #nav {
+	flex-wrap:wrap !important;
+	justify-content:center !important;
+	align-items:center !important;
+	padding:5px 60px 5px 0px !important;
+}
+
 @media (max-width:1000px) {
 	#nav {
 		flex-wrap:wrap !important;
@@ -148,7 +155,7 @@ li {
 }
 
 @media (max-width:850px) {
-	#nav {
+	#nav, .gameMode #nav {
 		width:100% !important;
 		height:100% !important;
 		background:#343848 !important;
@@ -159,13 +166,6 @@ li {
 		align-items:center !important;
 		padding:5px 30px 5px 0px !important;
 	}
-}
-
-.gameMode #nav {
-	flex-wrap:wrap !important;
-	justify-content:center !important;
-	align-items:center !important;
-	padding:5px 60px 5px 0px !important;
 }
 
 #nav:after {
@@ -181,6 +181,12 @@ li {
 	transition:opacity 0.15s;
 }
 
+.gameMode #nav:after {
+	opacity:0 !important;
+	display:none !important;
+}
+
+
 @media (max-width:1040px) {
 	#nav:after {
 		opacity:0 !important;
@@ -193,14 +199,14 @@ li {
 		display:none !important;
 	}
 }
-
-.gameMode #nav:after {
-	opacity:0 !important;
-	display:none !important;
-}
-
 #navInner {
 	display:flex;
+}
+
+.gameMode #navInner {
+	flex-wrap:wrap !important;
+	justify-content:center !important;
+	align-items:center !important;
 }
 
 @media (max-width:1000px) {
@@ -212,19 +218,13 @@ li {
 }
 
 @media (max-width:850px) {
-	#navInner {
+	#navInner, .gameMode #navInner {
 		width:100% !important;
 		height:100% !important;
 		flex-wrap:wrap !important;
 		justify-content:center !important;
 		align-items:center !important;
 	}
-}
-
-.gameMode #navInner {
-	flex-wrap:wrap !important;
-	justify-content:center !important;
-	align-items:center !important;
 }
 
 .navButton {
@@ -250,6 +250,13 @@ li {
 	z-index:1;
 }
 
+.gameMode .navButton {
+	margin:5px 25px 5px 5px !important;
+	width:calc(50% - 30px) !important;
+	height:30px !important;
+	font-size:24px !important;
+}
+
 @media (max-width:1000px) {
 	.navButton {
 		margin:5px 25px 5px 5px !important;
@@ -260,19 +267,12 @@ li {
 }
 
 @media (max-width:850px) {
-	.navButton {
+	.navButton, .gameMode .navButton {
 		margin:5px 30px !important;
 		margin-right:0px !important;
 		width:calc(50% - 30px) !important;
 		height:50px !important;
 	}
-}
-
-.gameMode .navButton {
-	margin:5px 25px 5px 5px !important;
-	width:calc(50% - 30px) !important;
-	height:30px !important;
-	font-size:24px !important;
 }
 
 .navButton:hover {
@@ -290,6 +290,19 @@ li {
 	box-shadow:-1px -1px #000000, 1px 1px #4B5466;
 }
 
+@media (max-width:850px) {
+	.navButton:before {
+		background-image:url(../images/backgroundNavSpacer.png);
+		content:"";
+		width:20px;
+		height:50px;
+		position:absolute;
+		left:-25px;
+		pointer-events:none;
+		margin:10px 0px;
+	}
+}
+
 .navButton:after {
 	background-image:url(../images/backgroundNavSpacer.png);
 	content:"";
@@ -301,6 +314,10 @@ li {
 	margin:10px 0px;
 }
 
+.gameMode .navButton:after {
+	height:30px !important;
+}
+
 @media (max-width:1000px) {
 	.navButton:after {
 		height:30px !important;
@@ -308,32 +325,8 @@ li {
 }
 
 @media (max-width:850px) {
-	.navButton:after {
-		background-image:url(../images/backgroundNavSpacer.png);
-		content:"";
-		width:20px;
-		height:50px;
-		position:absolute;
-		right:-25px;
-		pointer-events:none;
-		margin:10px 0px;
-	}
-}
-
-.gameMode .navButton:after {
-	height:30px !important;
-}
-
-@media (max-width:850px) {
-	.navButton:before {
-		background-image:url(../images/backgroundNavSpacer.png);
-		content:"";
-		width:20px;
-		height:50px;
-		position:absolute;
-		left:-25px;
-		pointer-events:none;
-		margin:10px 0px;
+	.navButton:after, .gameMode .navButton:after {
+		height:50px !important;
 	}
 }
 
@@ -438,6 +431,10 @@ li {
 	flex-direction:column;
 }
 
+.gameMode #sidebar {
+	display:none !important;
+}
+
 @media (max-width:850px) {
 	#sidebar {
 		display:none !important;
@@ -449,10 +446,6 @@ li {
 	#sidebar.show {
 		display:flex !important;
 	}
-}
-
-.gameMode #sidebar {
-	display:none !important;
 }
 
 #sidebarTitle {
@@ -705,14 +698,14 @@ li {
 	margin:5px 0px;
 }
 
+.gameMode .connectButton {
+	display:none !important;
+}
+
 .connectButton:hover {
 	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
 }
 
 .connectButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
-}
-
-.gameMode .connectButton {
-	display:none !important;
 }
