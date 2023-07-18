@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("dividerButton").addEventListener('click', dividerToggle);
 
 	if (gameMode == 1) {
-		document.body.classList.add("gameMode");
+		document.documentElement.classList.add("gameMode");
 
 		document.querySelectorAll(".siteLink").forEach((siteLink) => {
 			siteLink.href = siteLink.href+"?game=1"
