@@ -54,7 +54,7 @@ li {
 .textOutline:before {
 	content:attr(outline);
 	position:absolute;
-	-webkit-text-stroke:5px #000000;
+	-webkit-text-stroke:3px #000000;
 	z-index:-1;
 }
 
