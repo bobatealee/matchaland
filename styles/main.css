@@ -20,6 +20,7 @@ html, body {
 	color:#000000;
 	font-size:16px;
 	font-family:'Alata', monospace;
+
 }
 
 * {
@@ -31,13 +32,6 @@ html, body {
 
 body {
 	background:url(../images/background.png) #1F1F1F;
-	margin:50px 25px;
-}
-
-@media (max-width:850px) {
-	body {
-		margin:0px !important
-	}
 }
 
 ul {
@@ -60,7 +54,7 @@ li {
 .textOutline:before {
 	content:attr(outline);
 	position:absolute;
-	-webkit-text-stroke:1px #000000;
+	-webkit-text-stroke:5px #000000;
 	z-index:-1;
 }
 
@@ -69,6 +63,12 @@ li {
 	width:100%;
 	margin:0px auto;
 	filter:drop-shadow(5px 5px rgba(0, 0, 0, 0.75));
+}
+
+@media (max-width:850px) {
+	#container {
+		filter:unset !important;
+	}
 }
 
 @media (min-width: 1500px) {
@@ -81,6 +81,15 @@ li {
 	}
 }
 
+#containerInner {
+	padding:50px 25px;
+}
+
+@media (max-width:850px) {
+	#containerInner {
+		padding:0px !important
+	}
+}
 
 .part {
 	display:flex;

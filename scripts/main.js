@@ -45,11 +45,11 @@ new Image().src = "/images/backgroundFooterRight.png";
 function dividerToggle() {
 	if (document.getElementById("sidebar").classList.contains("show")) {
 		document.getElementById("sidebar").classList.remove("show");
-		document.getElementById("dividerButton").innerHTML = "Links ▼";
+		document.getElementById("dividerButton").innerHTML = "Links ⯆";
 		document.getElementById("dividerButton").setAttribute("outline", document.getElementById("dividerButton").innerHTML);
 	} else {
 		document.getElementById("sidebar").classList.add("show");
-		document.getElementById("dividerButton").innerHTML = "Links ▲";
+		document.getElementById("dividerButton").innerHTML = "Links ⯅";
 		document.getElementById("dividerButton").setAttribute("outline", document.getElementById("dividerButton").innerHTML);
 	}
 }
