@@ -52,18 +52,6 @@ li {
 	padding-left:16px;
 }
 
-.textOutline {
-	position:relative;
-	z-index:1;
-}
-
-.textOutline:before {
-	content:attr(outline);
-	position:absolute;
-	-webkit-text-stroke:5px #000000;
-	z-index:-1;
-}
-
 #container {
 	max-width:1500px;
 	width:100%;
@@ -325,6 +313,7 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	align-items:center;
 	position:relative;
 	z-index:1;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
 
 .gameMode .navButton {
@@ -353,12 +342,11 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 .navButton:hover {
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+	text-shadow:1px 1px #000000, 2px 2px #000000, 0px 0px 5px currentColor;
 }
 
 @media (max-width:850px) {
 	.navButton:hover {
-		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
 		box-shadow:-1px -1px #000000, 1px 1px #4B5466;
 	}
 }
@@ -462,17 +450,8 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	display:none;
 	font-family:'Quicksand', monospace;
 	user-select:none;
-}
-
-#dividerButton:hover {
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 	cursor:pointer;
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
-}
-
-@media (max-width:850px) {
-	#dividerButton:hover {
-		text-shadow:unset !important;
-	}
 }
 
 @media (max-width:850px) {
@@ -531,6 +510,7 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	font-size:22px;
 	font-family:'Quicksand', monospace;
 	text-align:center;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
 
 @media (max-width:850px) {
@@ -560,15 +540,15 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	font-family:'Quicksand', monospace;
 	box-shadow:1px 1px #000000, -1px -1px #495263;
 	user-select:none;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
 
 .sidebarButton:hover {
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+	text-shadow:1px 1px #000000, 2px 2px #000000, 0px 0px 5px currentColor;
 }
 
 @media (max-width:850px) {
 	.sidebarButton:hover {
-		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
 		box-shadow:-1px -1px #000000, 1px 1px #495263;
 	}
 }
@@ -616,6 +596,7 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	color:#FFFFFF;
 	align-items:center;
 	font-family:'Quicksand', monospace;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
 
 .textboxTitle:before {
@@ -751,9 +732,10 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	height:354px;
 	background-color:#343848;
 	border-radius:3px;
+	margin-bottom:5px;
 }
 
-.connectButton {
+a.connectButton {
 	width:100%;
 	height:50px;
 	background-color:#343848;
@@ -772,17 +754,24 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	margin:5px 0px;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
+	margin-bottom:5px;
 }
 
-.gameMode .connectButton {
+.gameMode a.connectButton {
 	display:none !important;
 }
 
-.connectButton:hover {
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+a.connectButton:hover {
+	text-shadow:1px 1px #000000, 2px 2px #000000, 0px 0px 5px currentColor;
 }
 
-.connectButton:active {
+@media (max-width:850px) {
+	a.connectButton:hover {
+		box-shadow:-1px -1px #000000, 1px 1px #809AB2;
+	}
+}
+
+a.connectButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
 }
