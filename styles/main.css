@@ -92,41 +92,45 @@ li {
 
 /* SCROLLBAR */
 
-html.gameMode::-webkit-scrollbar {
+html {
+	scrollbar-color:#FF9600 #222E57;
+}
+
+html::-webkit-scrollbar {
 	width:20px;
 }
 
 @media (min-width:1500px) {
-	html.gameMode::-webkit-scrollbar {
+	html::-webkit-scrollbar {
 		width:40px !important;
 	}
 }
 
-html.gameMode::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
 	background:linear-gradient(to bottom, #50597A, #222E57 10%, #222E57 90%, #11172B);
 }
  
-html.gameMode::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
 	background-color:#FF9600;
 	border-radius:20px;
 	box-shadow:inset 2px 2px 2px rgba(255,255,255,0.5), inset -2px -2px 2px rgba(0,0,0,0.5);
 }
 
 @media (min-width:1500px) {
-	html.gameMode::-webkit-scrollbar-thumb {
+	html::-webkit-scrollbar-thumb {
 		box-shadow:inset 4px 4px 4px rgba(255,255,255,0.5), inset -4px -4px 4px rgba(0,0,0,0.5) !important;
 	}
 }
 
-html.gameMode::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover {
 	background-color:#FFA628; 
 }
 
-html.gameMode::-webkit-scrollbar-thumb:active {
+html::-webkit-scrollbar-thumb:active {
 	background-color:#CD7900; 
 }
 
-html.gameMode::-webkit-scrollbar-button:single-button {
+html::-webkit-scrollbar-button:single-button {
 	background-color:#FF9600;
 	background-repeat:no-repeat;
 	background-position:center;
@@ -137,7 +141,7 @@ html.gameMode::-webkit-scrollbar-button:single-button {
 }
 
 @media (min-width:1500px) {
-	html.gameMode::-webkit-scrollbar-button:single-button {
+	html::-webkit-scrollbar-button:single-button {
 		width:40px !important;
 		height:40px !important;
 		background-size:40px !important;
@@ -145,19 +149,19 @@ html.gameMode::-webkit-scrollbar-button:single-button {
 	}
 }
 
-html.gameMode::-webkit-scrollbar-button:single-button:hover {
+html::-webkit-scrollbar-button:single-button:hover {
 	background-color:#FFA628; 
 }
 
-html.gameMode::-webkit-scrollbar-button:single-button:active {
+html::-webkit-scrollbar-button:single-button:active {
 	background-color:#CD7900; 
 }
 
-html.gameMode::-webkit-scrollbar-button:single-button:vertical:decrement {
+html::-webkit-scrollbar-button:single-button:vertical:decrement {
 	background-image:url(../images/scrollArrowUp.png);
 }
 
-html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
+html::-webkit-scrollbar-button:single-button:vertical:increment {
 	background-image:url(../images/scrollArrowDown.png);
 }
 
@@ -735,9 +739,9 @@ html.gameMode::-webkit-scrollbar-button:single-button:vertical:increment {
 	margin-bottom:5px;
 }
 
-a.connectButton {
+a.serverButton {
 	width:100%;
-	height:50px;
+	height:40px;
 	background-color:#343848;
 	color:#FFFFFF !important;
 	border-radius:20px;
@@ -758,20 +762,20 @@ a.connectButton {
 	margin-bottom:5px;
 }
 
-.gameMode a.connectButton {
+.gameMode .connect {
 	display:none !important;
 }
 
-a.connectButton:hover {
+a.serverButton:hover {
 	text-shadow:1px 1px #000000, 2px 2px #000000, 0px 0px 5px currentColor;
 }
 
 @media (max-width:850px) {
-	a.connectButton:hover {
+	a.serverButton:hover {
 		box-shadow:-1px -1px #000000, 1px 1px #809AB2;
 	}
 }
 
-a.connectButton:active {
+a.serverButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
 }
