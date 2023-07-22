@@ -3,6 +3,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 	get: (searchParams, prop) => searchParams.get(prop),
 });
 var gameMode = params.game;
+var localMode = params.local;
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("dividerButton").addEventListener('click', dividerToggle);
@@ -16,6 +17,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 		document.querySelectorAll(".external").forEach((link) => {
 			link.removeAttribute("href");
+		});
+	}
+
+	if (localMode == 1) {
+		document.querySelectorAll(".connect").forEach((connectButton) => {
+			var oldLink = connectButton.href;
+			var newLink = oldLink.replace('199.247.69.220', '192.168.1.112'); // replaces ips so i can join from the site :-)
+			connectButton.href = newLink;
 		});
 	}
 });

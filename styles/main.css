@@ -52,6 +52,10 @@ li {
 	padding-left:16px;
 }
 
+code {
+	overflow-wrap:break-word;
+}
+
 #container {
 	max-width:1500px;
 	width:100%;
