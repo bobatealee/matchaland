@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			connectButton.href = newLink;
 		});
 	}
+
+	// notice; comment out as necessary
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><marquee id="noticeInner">• We now have a permanent IP at: play.matchaland.net! •</marquee></div>');
 });
 
 // preload images
