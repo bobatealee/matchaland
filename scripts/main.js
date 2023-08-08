@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 
 	// notice; comment out as necessary
-	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><marquee id="noticeInner">• We now have a permanent IP at: play.matchaland.net! •</marquee></div>');
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><marquee id="noticeInner">• NEW! 100 player TF2 server up now at: play.matchaland.net:27065 •</marquee></div>');
 });
 
 // preload images
