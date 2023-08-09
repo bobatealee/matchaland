@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 
 	// notice; comment out as necessary
-	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at <a href="https://discord.gg/B6SP6Q2qsf" target="_blank" class="external" draggable="false"> https://discord.gg/B6SP6Q2qsf </a> •</marquee></div></div>');
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
 });
 
 // preload images

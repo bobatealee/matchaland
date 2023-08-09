@@ -77,6 +77,12 @@ code {
 	text-align:center;
 }
 
+@media (max-width:850px) {
+	#noticeInner {
+		margin:0px !important;
+	}
+}
+
 #container {
 	max-width:1500px;
 	width:100%;
