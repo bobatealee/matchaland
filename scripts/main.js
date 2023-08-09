@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 
 	// notice; comment out as necessary
-	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><marquee id="noticeInner">• NEW! 100 player TF2 server up now at: play.matchaland.net:27065 •</marquee></div>');
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><marquee id="noticeInner">• We now have a Discord server! Join now at <a href="https://discord.gg/WaCUVsp24R" target="_blank" class="external" draggable="false">https://discord.gg/WaCUVsp24R</a> •</marquee></div>');
 });
 
 // preload images
