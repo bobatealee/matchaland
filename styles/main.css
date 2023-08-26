@@ -64,7 +64,7 @@ code {
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	box-shadow:inset -3px -3px 3px rgba(0,0,0,0.5), inset 3px 3px 3px rgba(255,255,255,0.4);
+	box-shadow:inset -3px -3px 3px rgba(0,0,0,0.5), inset 3px 3px 3px rgba(255,255,255,0.4), 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 #noticeInner {
@@ -87,11 +87,11 @@ code {
 	max-width:1500px;
 	width:100%;
 	margin:0px auto;
-	filter:drop-shadow(5px 5px rgba(0, 0, 0, 0.75));
+	filter:drop-shadow(5px 5px rgba(0, 0, 0, 0.5));
 }
 
 @media (min-width:1500px) {
-	.gameMode #container {
+	.gameMode #body {
 		transform:scale(2) !important;
 		transform-origin:0 0 !important;
 		width:50% !important;
@@ -229,7 +229,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 #nav {
-	background:linear-gradient(-135deg, transparent 40px, #343848 40px);
+	background:linear-gradient(-135deg, transparent 30px, #343848 30px);
 	flex-grow:1;
 	height:100px;
 	padding:0px;
@@ -467,6 +467,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	min-width:10px;
 	height:40px;
 	left:0px;
+	bottom:0px;
 	background-image:url(../images/backgroundDividerLeft.png);
 }
 
@@ -478,6 +479,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	min-width:10px;
 	height:40px;
 	right:0px;
+	bottom:0px;
 	background-image:url(../images/backgroundDividerRight.png);
 }
 
@@ -627,8 +629,8 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 .textboxTitle {
-	background:linear-gradient(-135deg, transparent 20px, #343848 20px);
-	height:50px;
+	background:linear-gradient(-135deg, transparent 15px, #343848 15px);
+	min-height:50px;
 	font-size:30px;
 	display:flex;
 	position:relative;
@@ -649,7 +651,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 .textboxContent {
-	background:linear-gradient(45deg, transparent 20px, rgba(0, 0, 0, 0.25) 20px);
+	background:linear-gradient(45deg, transparent 15px, rgba(0, 0, 0, 0.25) 15px);
 	padding:10px 30px 15px;
 	font-size:24px;
 }
@@ -665,16 +667,16 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 
 .textboxContent a {
 	color:#CBDBFF;
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5);
+	text-shadow:0px 1px 2px rgba(0,0,0,0.75);
 }
 
 .textboxContent a:hover {
-	text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+	text-shadow:0px 1px 2px rgba(0,0,0,0.75), 0px 0px 5px currentColor;
 }
 
 @media (max-width:850px) {
 	.textboxContent a:hover {
-		text-shadow:0px 1px 2px rgba(0,0,0,0.5), 0px 0px 5px currentColor;
+		text-shadow:0px 1px 2px rgba(0,0,0,0.75), 0px 0px 5px currentColor;
 		color:#AFBCDC;
 	}
 }
