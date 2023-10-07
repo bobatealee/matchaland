@@ -1,6 +1,6 @@
 // variables
 var year = "2023";
-var version = "2.8.0";
+var version = "2.10.0";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 
 	// notice; comment out as necessary
-	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
+	//document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
 });
 
 // preload images

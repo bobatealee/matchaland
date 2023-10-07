@@ -132,13 +132,13 @@ html::-webkit-scrollbar {
 }
 
 @media (min-width:1500px) {
-	html::-webkit-scrollbar {
+	.gameMode html::-webkit-scrollbar {
 		width:40px !important;
 	}
 }
 
 html::-webkit-scrollbar-track {
-	background:linear-gradient(to bottom, #50597A, #222E57 10%, #222E57 90%, #11172B);
+	background:linear-gradient(to right, #4B5576, #222E57 20%, #222E57 80%, #1B2546);
 }
  
 html::-webkit-scrollbar-thumb {
@@ -148,7 +148,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 @media (min-width:1500px) {
-	html::-webkit-scrollbar-thumb {
+	.gameMode html::-webkit-scrollbar-thumb {
 		box-shadow:inset -4px -4px 4px rgba(0,0,0,0.5), inset 4px 4px 4px rgba(255,255,255,0.5);
 	}
 }
@@ -172,7 +172,7 @@ html::-webkit-scrollbar-button:single-button {
 }
 
 @media (min-width:1500px) {
-	html::-webkit-scrollbar-button:single-button {
+	.gameMode html::-webkit-scrollbar-button:single-button {
 		width:40px !important;
 		height:40px !important;
 		background-size:40px !important;
@@ -774,6 +774,24 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	background-color:#343848;
 	border-radius:3px;
 	margin-bottom:5px;
+}
+
+.serverNew {
+	width:200px;
+	background-color:#343848;
+	border-radius:5px;
+	margin-bottom:5px;
+	color:#FFFFFF !important;
+	font-size:20px;
+	display:inline-flex;
+	flex-direction:column;
+	padding:5px 10px 10px;
+}
+
+.serverNewImage {
+	width:180px;
+	border-radius:5px;
+	margin-top:5px;
 }
 
 a.serverButton {
