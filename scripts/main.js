@@ -1,6 +1,6 @@
 // variables
-var year = "2023";
-var version = "2.10.1";
+var year = "2024";
+var version = "2.10.2";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	if (localMode == 1) {
 		document.querySelectorAll(".connect").forEach((connectButton) => {
 			var oldLink = connectButton.href;
-			var newLink = oldLink.replace('199.247.69.220', '192.168.1.112'); // replaces ips so i can join from the site :-)
+			var newLink = oldLink.replace('64.5.76.253', '192.168.40.51'); // replaces ips so i can join from the site :-)
 			connectButton.href = newLink;
 		});
 	}
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 
 	// notice; comment out as necessary
-	//document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
+	// document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
 });
 
 // preload images
