@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.12.0";
+var version = "2.13.0";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -25,9 +25,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	}
 
 	if (localMode == 1) {
+		document.querySelectorAll(".navButton").forEach((navButton) => {
+			var oldLink = navButton.href;
+			var newLink = oldLink.concat("?local=1"); // local query string
+			navButton.href = newLink;
+		});
+
 		document.querySelectorAll(".connect").forEach((connectButton) => {
 			var oldLink = connectButton.href;
-			var newLink = oldLink.replace('64.5.76.253', '192.168.40.51'); // replaces ips so i can join from the site :-)
+			var newLink = oldLink.replace('play.matchaland.net', 'local.matchaland.net'); // replaces ips for local
 			connectButton.href = newLink;
 		});
 	}
