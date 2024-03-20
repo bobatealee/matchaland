@@ -761,60 +761,78 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 .server {
-	display:inline-flex;
-	justify-content:center;
-	align-items:center;
-	flex-direction:column;
-	margin:0px 2px;
-}
-
-.serverImage {
-	width:160px;
-	height:354px;
 	background-color:#343848;
-	border-radius:3px;
-	margin-bottom:5px;
-}
-
-.serverNew {
-	width:200px;
-	background-color:#343848;
-	border-radius:5px;
-	margin-bottom:5px;
+	border-radius:10px;
+	margin:5px;
 	color:#FFFFFF !important;
 	font-size:20px;
 	display:inline-flex;
+	position:relative;
 	flex-direction:column;
-	padding:5px 10px 10px;
+	padding:10px;
 }
 
-.serverNewImage {
-	width:180px;
-	border-radius:5px;
-	margin-top:5px;
+.serverInfo {
+	z-index:1;
+	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
 
-a.serverButton {
+.serverMap {
+	max-width: calc(100% - 10px);
+	height: calc(100% - 10px);
+	position: absolute;
+	top:5px;
+	left:5px;
+	border-radius: 5px;
+	opacity: 0.5;
+	mask-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0,0,0,0));
+}
+
+.serverTitle {
+	display:flex;
+	align-items:center;
+}
+
+.serverStatus {
+	width:16px;
+	height:16px;
+	margin-right:5px;
+}
+
+.serverGame {
+	width:32px;
+	height:32px;
+	margin-right:10px;
+}
+
+.serverButtons {
+	display:flex;
+	align-items:center;
+}
+
+.serverButton {
 	width:100%;
 	height:40px;
+	position:relative;
 	background-color:#343848;
-	color:#FFFFFF !important;
 	border-radius:20px;
+	box-shadow:1px 1px #000000, -1px -1px #809AB2;
 	padding:10px;
-	display:flex;
+	display:inline-flex;
+	justify-content:center;
+	align-items:center;
+	color:#FFFFFF !important;
 	font-size:26px;
 	font-family:'Quicksand', monospace;
-	justify-content:center;
-	align-items:center;
-	position:relative;
-	text-decoration:none;
-	box-shadow:1px 1px #000000, -1px -1px #809AB2;
-	user-select:none;
-	display:flex;
-	justify-content:center;
-	align-items:center;
 	text-shadow:1px 1px #000000, 2px 2px #000000;
-	margin-bottom:5px;
+	text-decoration:none;
+	user-select:none;
+	margin-top:10px;
+	margin-right:10px;
+}
+
+.serverButton:last-of-type {
+	margin-right:0px !important;
 }
 
 .gameMode .connect {
