@@ -1,0 +1,63 @@
+[
+    {
+        "id": "tf2_standard1",
+        "name": "matchaland.net | TF2 Standard Maps + Custom Classes",
+        "ip": "64.5.76.253:27015",
+        "game": "tf2"
+    },
+    {
+        "id": "tf2_custom1",
+        "name": "matchaland.net | TF2 Custom Maps + Custom Classes",
+        "ip": "64.5.76.253:27045",
+        "game": "tf2"
+    },
+    {
+        "id": "tf2_mvm1",
+        "name": "matchaland.net | TF2 MvM + Custom Classes",
+        "ip": "64.5.76.253:27055",
+        "game": "tf2"
+    },
+    {
+        "id": "tf2_mge1",
+        "name": "matchaland.net | TF2 MGE + Custom Classes",
+        "ip": "64.5.76.253:27065",
+        "game": "tf2"
+    },
+    {
+        "id": "tf2classic_standard1",
+        "name": "matchaland.net | TF2C Standard Maps + Bhop",
+        "ip": "64.5.76.253:27025",
+        "game": "hl2dm",
+        "overridegame": "tf2classic"
+    },
+    {
+        "id": "tf2classic_custom1",
+        "name": "matchaland.net | TF2C Custom Maps + Bhop",
+        "ip": "64.5.76.253:27035",
+        "game": "hl2dm",
+        "overridegame": "tf2classic"
+    },
+    {
+        "id": "dmc",
+        "name": "matchaland.net | Half-Life DMC",
+        "ip": "64.5.76.253:17015",
+        "game": "dmc"
+    },
+    {
+        "id": "minecraft",
+        "name": "matchaland.net | Minecraft 1.20.4 Survival",
+        "ip": "64.5.76.253:25565",
+        "game": "minecraft",
+        "overridemap": "matchaland",
+        "dynmap": "64.5.76.253:8123"
+    },
+    {
+        "id": "minecraftbeta",
+        "name": "matchaland.net | Minecraft b1.7.3 Survival",
+        "ip": "64.5.76.253:25576",
+        "game": "minecraftbeta",
+        "overridename": "matchaland.net | Minecraft b1.7.3 Survival",
+        "overridemap": "matchaland_beta",
+        "dynmap": "64.5.76.253:8133"
+    }
+]
