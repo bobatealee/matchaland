@@ -1,37 +1,34 @@
-// TODO: fix use of import here & research how
-// to do that in vanilla js + browser context
-import { forEach } from './servers.json';
-import * as c from './constants.js';
+import { servers } from "./serversData.js";
+import * as c from "./constants.js";
+import { RESOURCES, SERVER_INFO } from "./constants.js";
 
 // loop through every server
-document.addEventListener('DOMContentLoaded', (event) => {
-	forEach(server => listServer(server));
-	forEach(server => fetchServerData(server));
+document.addEventListener("DOMContentLoaded", (event) => {
+  servers.forEach((server) => listServer(server));
+  servers.forEach((server) => fetchServerData(server));
 });
 
 // generate dummy server entries
 function listServer(server) {
+  // TODO: im satisfied with this for now,
+  // but could be improved with a template literal
+  // and a cleaner approach to the server object in general
+  const {
+    id,
+    overridename: name = server.name,
+    overridegame: game = server.game,
+  } = server;
 
-	// TODO: use object destructuring here instead,
-	// and move as much of this as possible to constants.js
-	const id = server.id;
+  const serverParent = document.getElementById("servers");
+  const serverElement = document.createElement("div");
 
-	const name = server.overridename
-		? server.overridename
-		: server.name;
+  serverElement.id = id;
+  serverElement.className = "server";
+  serverElement.style.width = "100%"; // temp
 
-	const game = server.overridegame
-		? server.overridegame
-		: server.game;
-
-	const container = document.getElementById("servers");
-	const serverElement = document.createElement("div");
-
-	serverElement.id = id;
-	serverElement.className = "server";
-	serverElement.style.width = "100%"; // temp
-
-	serverElement.innerHTML =`
+  // TODO: make this a template literal and bring over
+  // naming conventions from the constants file
+  serverElement.innerHTML = `
 		<img class="serverMap" src=${c.unknownMapSrc} />
 
 		<div class="serverInfo">
@@ -41,64 +38,65 @@ function listServer(server) {
 				<div>${name}</div>
 			</div>
 		</div>
-`
-	container.appendChild(serverElement);
+`;
+  serverParent.appendChild(serverElement);
 }
 
 // fetch server data from api
 function fetchServerData(server) {
-	const { id, ip, game, overrideName, overrideGame, overrideMap, dynmap } = server;
-	const trueGame = overrideGame ? overrideGame : game;
+  // TODO: make these variable names consistent across files in camelCase
+  const {
+    unique_id,
+    game,
+    override_name,
+    override_game,
+    override_map,
+    dynmap,
+  } = server;
 
-	fetch(c.apiEndpoint)
-		.then(response => response.json())
-		.then(data => displayServerData(data, id, trueGame, overrideName, overrideMap, dynmap))
-		.catch(error => console.error("Error fetching server data:", error));
+  fetch(RESOURCES.API_ENDPOINT(server.server_ip, game))
+    .then((response) => response.json())
+    .then((data) =>
+      displayServerData(
+        data,
+        unique_id,
+        override_game ? override_game : game,
+        override_name,
+        override_map,
+        dynmap,
+      ),
+    )
+    .catch((error) => console.error("Error fetching server data:", error));
 }
 
 // display server data once fetched
-function displayServerData(data, id, game, overrideName, overrideMap, dynmap) {
+function displayServerData(
+  data,
+  unique_id,
+  override_game,
+  override_name,
+  override_map,
+  dynmap,
+) {
+  const serverElement = document.getElementById(id);
 
-	const serverElement = document.getElementById(id);
+  // **************************************************
 
-	// **************************************************
-	// TODO: most if not all of these should be moved to constants.js
-
-	const cleanServerName = (overrideName
-		? overrideName
-		: data.serverName).replace(/�./g, "");
-
-	const numOfBots = data.numBots > 0
-		? ` (${data.numBots} bots)`
-		: ""; // only show bots if there are any
-
-	const serverIP = data.serverIP;
-	
-	const serverMap = overrideMap ? overrideMap : data.currentMap;
-
-	const serverMapImg = `${serverMap}.png`;
-
-	const players = `${data.numHumans}/${data.maxClients} ${numOfBots}`;
-
-	const connectOrDynmap = dynmap ? "http://"+dynmap : "steam://connect/"+data.serverIP;
-
-	const serverButtonText = dynmap ? "Dynmap" : "Connect";
-
-	// **************************************************
-
-	serverElement.innerHTML = `
-		<img class="serverMap" src=${c.serverMapSrc} onerror="this.onerror=null; this.src=${c.unknownMapSrc};" />
+  // TODO: hnnggg must abstract even further until we reach the singularity
+  // also bring across the other constants from the constants file
+  serverElement.innerHTML = `
+		<img class="serverMap" src=${RESOURCES.IMAGE_SOURCES.serverMap(override_game, override_map)} onerror="this.onerror=null; this.src=${RESOURCES.IMAGE_SOURCES.unknownMap}" />
 
 		<div class="serverInfo">
 			<div class="serverTitle">
-				<img class="serverStatus" src=${c.onlineStatusSrc} />
+				<img class="serverStatus" src=${RESOURCES.IMAGE_SOURCES.onlineStatus} />
 				<img class="serverGame" src=${c.serverGameSrc} onerror="this.onerror=null; this.src=${c.unknownGameSrc};" />
 				<div>${cleanServerName}</div>
 			</div>
 
 			<div><b>IP:</b> ${serverIP}</div>
 			<div><b>Map:</b> ${serverMap}</div>
-			<div><b>Players:</b> ${players}</div>
+			<div><b>Players:</b> ${playersText}</div>
 		</div>
 
 		<div class="serverButtons">
@@ -108,20 +106,20 @@ function displayServerData(data, id, game, overrideName, overrideMap, dynmap) {
 	`;
 }
 
-// TODO: adjust exports to satisfy the linter when things are called by other files
-function convertTime(time) {
-	const days = Math.floor(time / SECONDS_IN_DAY);
-	const hours = Math.floor((time % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
-	const minutes = Math.floor((time % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
-	const seconds = Math.floor(time % SECONDS_IN_MINUTE);
+// currently unnecessary; player data is not displayed on the frontend.
+// function convertTime(time) {
+// 	const days = Math.floor(time / SECONDS_IN_DAY);
+// 	const hours = Math.floor((time % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
+// 	const minutes = Math.floor((time % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
+// 	const seconds = Math.floor(time % SECONDS_IN_MINUTE);
 
-	let formattedTime = "";
+// 	let formattedTime = "";
 
-	// only show applicable time units
-	if (days > 0) formattedTime += `${days}d `;
-	if (hours > 0) formattedTime += `${hours}h `;
-	if (minutes > 0 || hours > 0) formattedTime += `${minutes}m `;
+// 	// only show applicable time units
+// 	if (days > 0) formattedTime += `${days}d `;
+// 	if (hours > 0) formattedTime += `${hours}h `;
+// 	if (minutes > 0 || hours > 0) formattedTime += `${minutes}m `;
 
-	formattedTime += `${seconds.toString()}s`; // add seconds
-	return formattedTime; // return formatted time string
-}
+// 	formattedTime += `${seconds.toString()}s`; // add seconds
+// 	return formattedTime; // return formatted time string
+// }
