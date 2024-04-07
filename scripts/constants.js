@@ -21,24 +21,24 @@ export const RESOURCES = {
 };
 
 export const TIME_CONSTANTS = {
-  SECONDS_IN_DAY: 24 * 60 * 60,
-  SECONDS_IN_HOUR: 60 * 60,
-  SECONDS_IN_MINUTE: 60,
+  secondsInDay: 24 * 60 * 60,
+  secondsInHour: 60 * 60,
+  secondsInMinute: 60,
 };
 
 // abstaction = pain but luckily we're not
 // touching this stuff ever again Smiley Face
 export const SERVER_INFO = {
-  cleanServerName: (data, overrideName) =>
-    (overrideName ? overrideName : data.serverName).replace(/�./g, ""),
+  cleanServerName: (serverData, overrideName) =>
+    (overrideName ? overrideName : serverData.serverName).replace(/�./g, ""),
 
-  botsText: (data) => (data.numBots > 0 ? ` (${data.numBots} bots)` : ""),
+  botsText: (serverData) => (serverData.numBots > 0 ? ` (${serverData.numBots} bots)` : ""),
 
-  playersText: (data) =>
-    `${data.numHumans}/${data.maxClients} ${SERVER_INFO.botsText(data)}`,
+  playersText: (serverData) =>
+    `${serverData.numHumans}/${serverData.maxClients} ${SERVER_INFO.botsText(serverData)}`,
 
-  connectOrDynmap: (data, dynmap) =>
-    dynmap ? `http://${dynmap}` : `steam://connect/${data.serverIP}`,
+  connectOrDynmap: (serverData, dynmap) =>
+    dynmap ? `http://${dynmap}` : `steam://connect/${serverData.serverIP}`,
 
   serverButtonText: (dynmap) => (dynmap ? "Dynmap" : "Connect"),
 };
