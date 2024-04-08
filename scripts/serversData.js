@@ -1,4 +1,4 @@
-const servers = [
+export const servers = [
   {
     uniqueId: "tf2_standard1",
     displayName: "matchaland.net | TF2 Standard Maps + Custom Classes",
