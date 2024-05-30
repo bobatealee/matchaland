@@ -45,7 +45,7 @@ const servers = [
 	},
 	{
 		"id": "minecraft",
-		"name": "matchaland.net | Minecraft 1.20.4 Survival",
+		"name": "matchaland.net | Minecraft 1.20.6 Survival",
 		"ip": "64.5.76.253:25565",
 		"game": "minecraft",
 		"overridemap": "matchaland",
