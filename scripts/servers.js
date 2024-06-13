@@ -45,20 +45,20 @@ const servers = [
 	},
 	{
 		"id": "minecraft",
-		"name": "matchaland.net | Minecraft 1.20.6 Survival",
-		"ip": "64.5.76.253:25565",
+		"name": "matchaland.net | Minecraft 1.21 Survival",
+		"ip": "64.5.76.253:10010",
 		"game": "minecraft",
 		"overridemap": "matchaland",
-		"dynmap": "64.5.76.253:8123"
+		"dynmap": "64.5.76.253:9010"
 	},
 	{
 		"id": "minecraftbeta",
 		"name": "matchaland.net | Minecraft b1.7.3 Survival",
-		"ip": "64.5.76.253:25576",
+		"ip": "64.5.76.253:10021",
 		"game": "minecraftbeta",
 		"overridename": "matchaland.net | Minecraft b1.7.3 Survival",
 		"overridemap": "matchaland_beta",
-		"dynmap": "64.5.76.253:8133",
+		"dynmap": "64.5.76.253:9020",
 	}
 ];
 
