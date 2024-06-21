@@ -115,6 +115,7 @@ function fetchServerData(server) {
 }
 
 // display server data once fetched
+var localMode = params.local;
 function displayServerData(data, id, game, overridename, overridemap, dynmap) {
 	const serverElement = document.getElementById(id);
 
@@ -155,6 +156,14 @@ function displayServerData(data, id, game, overridename, overridemap, dynmap) {
 			<a href="${dynmap ? "http://"+dynmap : "steam://connect/"+data.serverIP}" class="serverButton connect" draggable="false">${dynmap ? "Dynmap" : "Connect"}</a>
 		</div>
 	`;
+	
+	if (localMode == 1) {
+		document.querySelectorAll(".connect").forEach((connectButton) => {
+			var oldLink = connectButton.href;
+			var newLink = oldLink.replace('64.5.76.253', '192.168.40.51'); // replace ips in local mode
+			connectButton.href = newLink;
+		});
+	}
 }
 
 const SECONDS_IN_DAY = 24 * 60 * 60;
