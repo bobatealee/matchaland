@@ -65,7 +65,7 @@ const servers = [
 	{
 		"id": "tf2classic_grabbag1",
 		"name": "matchaland.net | TF2C Grab Bag",
-		"ip": "64.5.76.253:21020",
+		"ip": "64.5.76.253:21030",
 		"game": "hl2dm",
 		"overridegame": "tf2classic"
 	},
