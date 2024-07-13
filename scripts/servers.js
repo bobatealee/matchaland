@@ -1,64 +1,79 @@
 const servers = [
 	{
-		"id": "tf2_standard1",
-		"name": "matchaland.net | TF2 Standard Maps + Custom Classes",
-		"ip": "64.5.76.253:27015",
-		"game": "tf2"
-	},
-	{
-		"id": "tf2_custom1",
-		"name": "matchaland.net | TF2 Custom Maps + Custom Classes",
-		"ip": "64.5.76.253:27045",
-		"game": "tf2"
-	},
-	{
-		"id": "tf2_mvm1",
-		"name": "matchaland.net | TF2 MvM + Custom Classes",
-		"ip": "64.5.76.253:27055",
-		"game": "tf2"
-	},
-	{
-		"id": "tf2_mge1",
-		"name": "matchaland.net | TF2 MGE + Custom Classes",
-		"ip": "64.5.76.253:27065",
-		"game": "tf2"
-	},
-	{
-		"id": "tf2classic_standard1",
-		"name": "matchaland.net | TF2C Standard Maps + Bhop",
-		"ip": "64.5.76.253:27025",
-		"game": "hl2dm",
-		"overridegame": "tf2classic"
-	},
-	{
-		"id": "tf2classic_custom1",
-		"name": "matchaland.net | TF2C Custom Maps + Bhop",
-		"ip": "64.5.76.253:27035",
-		"game": "hl2dm",
-		"overridegame": "tf2classic"
-	},
-	{
-		"id": "dmc",
-		"name": "matchaland.net | Half-Life DMC",
-		"ip": "64.5.76.253:17015",
-		"game": "dmc"
-	},
-	{
 		"id": "minecraft",
 		"name": "matchaland.net | Minecraft 1.21 Survival",
 		"ip": "64.5.76.253:10010",
 		"game": "minecraft",
 		"overridemap": "matchaland",
-		"dynmap": "64.5.76.253:9010"
+		"dynmap": "64.5.76.253:10015"
+	},
+	{
+		"id": "minecraft_creative",
+		"name": "matchaland.net | Minecraft 1.21 Creative",
+		"ip": "64.5.76.253:10020",
+		"game": "minecraft",
+		"overridemap": "matchaland_creative",
+		"dynmap": "64.5.76.253:10025"
 	},
 	{
 		"id": "minecraftbeta",
 		"name": "matchaland.net | Minecraft b1.7.3 Survival",
-		"ip": "64.5.76.253:10021",
+		"ip": "64.5.76.253:11011",
 		"game": "minecraftbeta",
 		"overridename": "matchaland.net | Minecraft b1.7.3 Survival",
 		"overridemap": "matchaland_beta",
-		"dynmap": "64.5.76.253:9020",
+		"dynmap": "64.5.76.253:11015",
+	},
+	{
+		"id": "tf2_standard1",
+		"name": "matchaland.net | TF2 Standard Maps",
+		"ip": "64.5.76.253:20010",
+		"game": "tf2"
+	},
+	{
+		"id": "tf2_custom1",
+		"name": "matchaland.net | TF2 Custom Maps",
+		"ip": "64.5.76.253:20020",
+		"game": "tf2"
+	},
+	{
+		"id": "tf2_grabbag1",
+		"name": "matchaland.net | TF2 Grab Bag",
+		"ip": "64.5.76.253:20030",
+		"game": "tf2"
+	},
+	{
+		"id": "tf2_mvm1",
+		"name": "matchaland.net | TF2 MvM",
+		"ip": "64.5.76.253:20040",
+		"game": "tf2"
+	},
+	{
+		"id": "tf2classic_standard1",
+		"name": "matchaland.net | TF2C Standard Maps",
+		"ip": "64.5.76.253:21010",
+		"game": "hl2dm",
+		"overridegame": "tf2classic"
+	},
+	{
+		"id": "tf2classic_custom1",
+		"name": "matchaland.net | TF2C Custom Maps",
+		"ip": "64.5.76.253:21020",
+		"game": "hl2dm",
+		"overridegame": "tf2classic"
+	},
+	{
+		"id": "tf2classic_grabbag1",
+		"name": "matchaland.net | TF2C Grab Bag",
+		"ip": "64.5.76.253:21020",
+		"game": "hl2dm",
+		"overridegame": "tf2classic"
+	},
+	{
+		"id": "dmc",
+		"name": "matchaland.net | DMC Grab Bag",
+		"ip": "64.5.76.253:30010",
+		"game": "dmc"
 	}
 ];
 
@@ -160,7 +175,7 @@ function displayServerData(data, id, game, overridename, overridemap, dynmap) {
 	if (localMode == 1) {
 		document.querySelectorAll(".connect").forEach((connectButton) => {
 			var oldLink = connectButton.href;
-			var newLink = oldLink.replace('64.5.76.253', '192.168.40.51'); // replace ips in local mode
+			var newLink = oldLink.replace('64.5.76.253', '192.168.40.252'); // hacky - replace ips in local mode
 			connectButton.href = newLink;
 		});
 	}
