@@ -2,77 +2,77 @@ const servers = [
 	{
 		"id": "minecraft",
 		"name": "matchaland.net | Minecraft 1.21 Survival",
-		"ip": "64.5.76.253:10010",
+		"ip": "199.247.78.239:10010",
 		"game": "minecraft",
 		"overridemap": "matchaland",
-		"dynmap": "64.5.76.253:10015"
+		"dynmap": "199.247.78.239:10015"
 	},
 	{
 		"id": "minecraft_creative",
 		"name": "matchaland.net | Minecraft 1.21 Creative",
-		"ip": "64.5.76.253:10020",
+		"ip": "199.247.78.239:10020",
 		"game": "minecraft",
 		"overridemap": "matchaland_creative",
-		"dynmap": "64.5.76.253:10025"
+		"dynmap": "199.247.78.239:10025"
 	},
 	{
 		"id": "minecraftbeta",
 		"name": "matchaland.net | Minecraft b1.7.3 Survival",
-		"ip": "64.5.76.253:11011",
+		"ip": "199.247.78.239:11011",
 		"game": "minecraftbeta",
 		"overridename": "matchaland.net | Minecraft b1.7.3 Survival",
 		"overridemap": "matchaland_beta",
-		"dynmap": "64.5.76.253:11015",
+		"dynmap": "199.247.78.239:11015",
 	},
 	{
 		"id": "tf2_standard1",
 		"name": "matchaland.net | TF2 Standard Maps",
-		"ip": "64.5.76.253:20010",
+		"ip": "199.247.78.239:20010",
 		"game": "tf2"
 	},
 	{
 		"id": "tf2_custom1",
 		"name": "matchaland.net | TF2 Custom Maps",
-		"ip": "64.5.76.253:20020",
+		"ip": "199.247.78.239:20020",
 		"game": "tf2"
 	},
 	{
 		"id": "tf2_grabbag1",
 		"name": "matchaland.net | TF2 Grab Bag",
-		"ip": "64.5.76.253:20030",
+		"ip": "199.247.78.239:20030",
 		"game": "tf2"
 	},
 	{
 		"id": "tf2_mvm1",
 		"name": "matchaland.net | TF2 MvM",
-		"ip": "64.5.76.253:20040",
+		"ip": "199.247.78.239:20040",
 		"game": "tf2"
 	},
 	{
 		"id": "tf2classic_standard1",
 		"name": "matchaland.net | TF2C Standard Maps",
-		"ip": "64.5.76.253:21010",
+		"ip": "199.247.78.239:21010",
 		"game": "hl2dm",
 		"overridegame": "tf2classic"
 	},
 	{
 		"id": "tf2classic_custom1",
 		"name": "matchaland.net | TF2C Custom Maps",
-		"ip": "64.5.76.253:21020",
+		"ip": "199.247.78.239:21020",
 		"game": "hl2dm",
 		"overridegame": "tf2classic"
 	},
 	{
 		"id": "tf2classic_grabbag1",
 		"name": "matchaland.net | TF2C Grab Bag",
-		"ip": "64.5.76.253:21030",
+		"ip": "199.247.78.239:21030",
 		"game": "hl2dm",
 		"overridegame": "tf2classic"
 	},
 	{
 		"id": "dmc",
 		"name": "matchaland.net | DMC Grab Bag",
-		"ip": "64.5.76.253:30010",
+		"ip": "199.247.78.239:30010",
 		"game": "dmc"
 	}
 ];
@@ -175,7 +175,7 @@ function displayServerData(data, id, game, overridename, overridemap, dynmap) {
 	if (localMode == 1) {
 		document.querySelectorAll(".connect").forEach((connectButton) => {
 			var oldLink = connectButton.href;
-			var newLink = oldLink.replace('64.5.76.253', '192.168.40.252'); // hacky - replace ips in local mode
+			var newLink = oldLink.replace('199.247.78.239', '192.168.0.25'); // hacky - replace ips in local mode
 			connectButton.href = newLink;
 		});
 	}
