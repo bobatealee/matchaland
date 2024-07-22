@@ -7,7 +7,6 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 	get: (searchParams, prop) => searchParams.get(prop),
 });
 var gameMode = params.game;
-var localMode = params.local;
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("dividerButton").addEventListener('click', dividerToggle);
@@ -21,14 +20,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 		document.querySelectorAll(".external").forEach((link) => {
 			link.removeAttribute("href");
-		});
-	}
-
-	if (localMode == 1) {
-		document.querySelectorAll(".navButton").forEach((navButton) => {
-			var oldLink = navButton.href;
-			var newLink = oldLink.concat("?local=1"); // local query string
-			navButton.href = newLink;
 		});
 	}
 
