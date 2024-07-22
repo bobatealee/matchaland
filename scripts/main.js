@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.16.0";
+var version = "2.16.1";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
