@@ -16,7 +16,7 @@ const servers = [
 		"dynmap": "199.247.78.239:10025"
 	},
 	{
-		"id": "minecraftbeta",
+		"id": "minecraft_beta",
 		"name": "matchaland.net | Minecraft b1.7.3 Survival",
 		"ip": "199.247.78.239:11011",
 		"game": "minecraftbeta",
