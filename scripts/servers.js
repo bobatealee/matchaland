@@ -1,7 +1,7 @@
 const servers = [
 	{
 		"id": "minecraft",
-		"name": "matchaland.net | Minecraft 1.21 Survival",
+		"name": "matchaland.net | Minecraft 1.21.1 Survival",
 		"ip": "199.247.78.239:10010",
 		"game": "minecraft",
 		"overridemap": "matchaland",
@@ -9,7 +9,7 @@ const servers = [
 	},
 	{
 		"id": "minecraft_creative",
-		"name": "matchaland.net | Minecraft 1.21 Creative",
+		"name": "matchaland.net | Minecraft 1.21.1 Creative",
 		"ip": "199.247.78.239:10020",
 		"game": "minecraft",
 		"overridemap": "matchaland_creative",
