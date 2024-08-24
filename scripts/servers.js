@@ -1,28 +1,28 @@
-const servers = [
+// list of servers
+const serverList = [
 	{
 		"id": "minecraft",
 		"name": "matchaland.net | Minecraft 1.21.1 Survival",
 		"ip": "199.247.78.239:10010",
 		"game": "minecraft",
-		"overridemap": "matchaland",
-		"dynmap": "199.247.78.239:10015"
+		"overrideMap": "matchaland",
+		"dynmap": "http://play.matchaland.net:10015/?mapname=surface&zoom=3"
 	},
 	{
 		"id": "minecraft_creative",
 		"name": "matchaland.net | Minecraft 1.21.1 Creative",
 		"ip": "199.247.78.239:10020",
 		"game": "minecraft",
-		"overridemap": "matchaland_creative",
-		"dynmap": "199.247.78.239:10025"
+		"overrideMap": "matchaland_creative",
+		"dynmap": "http://play.matchaland.net:10025/?mapname=surface&zoom=3"
 	},
 	{
 		"id": "minecraft_beta",
 		"name": "matchaland.net | Minecraft b1.7.3 Survival",
 		"ip": "199.247.78.239:11011",
 		"game": "minecraftbeta",
-		"overridename": "matchaland.net | Minecraft b1.7.3 Survival",
-		"overridemap": "matchaland_beta",
-		"dynmap": "199.247.78.239:11015",
+		"overrideMap": "matchaland_beta",
+		"dynmap": "http://play.matchaland.net:11015/?mapname=surface&zoom=3",
 	},
 	{
 		"id": "tf2_standard1",
@@ -53,21 +53,21 @@ const servers = [
 		"name": "matchaland.net | TF2C Standard Maps",
 		"ip": "199.247.78.239:21010",
 		"game": "hl2dm",
-		"overridegame": "tf2classic"
+		"overrideGame": "tf2classic"
 	},
 	{
 		"id": "tf2classic_custom1",
 		"name": "matchaland.net | TF2C Custom Maps",
 		"ip": "199.247.78.239:21020",
 		"game": "hl2dm",
-		"overridegame": "tf2classic"
+		"overrideGame": "tf2classic"
 	},
 	{
 		"id": "tf2classic_grabbag1",
 		"name": "matchaland.net | TF2C Grab Bag",
 		"ip": "199.247.78.239:21030",
 		"game": "hl2dm",
-		"overridegame": "tf2classic"
+		"overrideGame": "tf2classic"
 	},
 	{
 		"id": "dmc",
@@ -79,116 +79,111 @@ const servers = [
 
 // loop through every server
 document.addEventListener('DOMContentLoaded', (event) => {
-	servers.forEach(server => listServer(server));
-	servers.forEach(server => fetchServerData(server));
+	serverList.forEach(server => listServer(server));
 });
+
+// preload images
+new Image().src = "https://resources.matchaland.net/status/offline.png";
+new Image().src = "https://resources.matchaland.net/status/online.png";
+new Image().src = "https://resources.matchaland.net/games/unknown.png";
+new Image().src = "https://resources.matchaland.net/maps/unknown.png";
 
 // generate dummy server entries
 function listServer(server) {
-	const id = server.id;
-	const name = server.overridename ? server.overridename : server.name;
-	const game = server.overridegame ? server.overridegame : server.game;
+	// for dummy entry
+	const serverId = server.id;
+	const serverName = server.name;
+	const serverGame = server.overrideGame ? server.overrideGame : server.game;
 
+	// jotting down now, displaying later
+	const serverIp = server.ip;
+	const serverOverrideMap = server.overrideMap;
+	const serverDynmap = server.dynmap;
+
+	// create entry element
 	const container = document.getElementById("servers");
 	const serverElement = document.createElement("div");
-	serverElement.id = id;
+	serverElement.id = serverId;
 	serverElement.className = "server";
-	// temp
-	serverElement.style.width = "100%";
 
-	serverElement.innerHTML =`
-		<img class="serverMap" src="https://resources.matchaland.net/maps/unknown.png" />
-
-		<div class="serverInfo">
-			<div class="serverTitle">
-				<img class="serverStatus" src="https://resources.matchaland.net/status/offline.png" />
-				<img class="serverGame" src="https://resources.matchaland.net/games/${game}.png" onerror="this.onerror=null; this.src='https://resources.matchaland.net/games/unknown.png';" />
-				<div>${name}</div>
-			</div>
+	// populate entry with temp info
+	serverElement.innerHTML =
+	`
+		<div class="serverTitle">
+			<img class="serverStatus" src="https://resources.matchaland.net/status/offline.png" />
+			<img class="serverGame" src="https://resources.matchaland.net/games/${serverGame}.png" onerror="this.onerror=null; this.src='https://resources.matchaland.net/games/unknown.png';" />
+			<div>${serverName}</div>
 		</div>
-`
+		
+		<div class="serverContent">
+			<img class="serverMap" src="https://resources.matchaland.net/maps/unknown.png" />
+			<div class="serverMapName"><b>Map:</b> ---</div>
+			<div class="serverPlayers"><b>Players:</b> ---</div>
+		</div>
+
+		<div class="serverButtons">
+			<a href="" class="serverButton serverInfo" style="width:100%;" draggable="false"><div class="info"></div></a>
+		</div>
+	`
 
 	container.appendChild(serverElement);
-}
 
-// fetch server data from api
-function fetchServerData(server) {
-	const id = server.id;
-	const ip = server.ip;
-	const game = server.game;
-
-	const overridename = server.overridename;
-	const overridegame = server.overridegame;
-	const overridemap = server.overridemap;
-	const dynmap = server.dynmap;
-
-	const url = `https://api.raccoonlagoon.com/v1/server-info?ip=${ip}&g=${game}`;
+	// fetch server data from api
+	const url = `https://api.raccoonlagoon.com/v1/server-info?ip=${serverIp}&g=${server.game}`;
 	fetch(url)
 		.then(response => response.json())
-		.then(data => displayServerData(data, id, server.overridegame ? server.overridegame : game, overridename, overridemap, dynmap))
+		.then(data => displayServerData(data, serverId, serverGame, serverOverrideMap, serverDynmap))
 		.catch(error => console.error("Error fetching server data:", error));
 }
 
 // display server data once fetched
-function displayServerData(data, id, game, overridename, overridemap, dynmap) {
-	const serverElement = document.getElementById(id);
+function displayServerData(data, serverId, serverGame, serverOverrideMap, serverDynmap) {
+	const serverMap = (serverOverrideMap ? serverOverrideMap : data.currentMap)
+	const serverElement = document.getElementById(serverId);
 
-	const cleanServerName = (overridename ? overridename : data.serverName).replace(/�./g, "");
+	// set updated server info
+	// server returned data, so it's online
+	serverElement.getElementsByClassName("serverStatus")[0].src = "https://resources.matchaland.net/status/online.png";
 
-	const numOfBots = data.numBots > 0 ? ` (${data.numBots} Bots)` : ""; // only show bots if there are any
+	serverElement.getElementsByClassName("serverStatus")[0].classList.add("asyncImage");
+	serverElement.getElementsByClassName("serverMap")[0].dataset.src = "https://resources.matchaland.net/maps/"+serverGame+"/"+serverMap+".png";
 
+	serverElement.getElementsByClassName("serverMapName")[0].innerHTML = "<b>Map:</b> "+serverMap;
+	serverElement.getElementsByClassName("serverMapName")[0].title = serverMap;
+
+	// server player list
 	// only show the table if there are players
-/*
-	const playerListTable = data.humanData.length > 0 ? `
-	<table>
-	<tr>
-		<th>Name</th>
-		<th>Score</th>
-		<th>Time Played</th>
-	</tr>${data.humanData.map(player => {
-		return `<tr><td>${player.name}</td><td>${player.score}</td><td>${convertTime(player.time)}</td></tr>`;
-	}).join("")}` : "";
-*/
+	const playerListTable = data.humanData.length > 0 ?
+	`${data.humanData.map(player => {
+		return `${player.name}`;
+	}).join("\n")}` : "";
 
-	serverElement.innerHTML = `
-		<img class="serverMap" src="https://resources.matchaland.net/maps/${game}/${overridemap ? overridemap : data.currentMap}.png" onerror="this.onerror=null; this.src='https://resources.matchaland.net/maps/unknown.png';" />
+	// only show bots if there are any
+	const numOfBots = data.numBots > 0 ? ` (${data.numBots} Bots)` : "";
+	serverElement.getElementsByClassName("serverPlayers")[0].innerHTML = "<b>Players:</b> "+data.numHumans+"/"+data.maxClients+" "+numOfBots;
+	serverElement.getElementsByClassName("serverPlayers")[0].title = playerListTable;
+	if (data.numHumans > 0) {
+		serverElement.getElementsByClassName("serverPlayers")[0].classList.add("tooltip");
+	}
 
-		<div class="serverInfo">
-			<div class="serverTitle">
-				<img class="serverStatus" src="https://resources.matchaland.net/status/online.png" />
-				<img class="serverGame" src="https://resources.matchaland.net/games/${game}.png" onerror="this.onerror=null; this.src='https://resources.matchaland.net/games/unknown.png';" />
-				<div>${cleanServerName}</div>
-			</div>
-
-			<div><b>IP:</b> ${data.serverIP}</div>
-			<div><b>Map:</b> ${overridemap ? overridemap : data.currentMap}</div>
-			<div><b>Players:</b> ${data.numHumans}/${data.maxClients} ${numOfBots}</div>
-		</div>
-
-		<div class="serverButtons">
-			<a href="${id}" class="serverButton" draggable="false">Info</a>
-			<a href="${dynmap ? "http://"+dynmap : "steam://connect/"+data.serverIP}" class="serverButton connect" draggable="false">${dynmap ? "Dynmap" : "Connect"}</a>
-		</div>
+	// server buttons, done a little differently because of how dynamic they can be
+	// servers with a dynmap field will replace the connect button with a copy ip button, and assumes that the hostname is yours - be mindful
+	serverElement.getElementsByClassName("serverButtons")[0].innerHTML =
+	`
+		<a ${serverDynmap ? "" : `href="steam://connect/${data.serverIP}"`} ${serverDynmap ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, 'play.matchaland.net')}');"` : ""} class="serverButton serverConnect" draggable="false">${serverDynmap ? "Copy IP" : "Connect"}</a>
+		${serverDynmap ? `<a href="${serverDynmap}" class="serverButton serverDynmap" draggable="false"><div class="dynmap"></div></a>` : ""}
+		<a href="${serverId}" class="serverButton serverInfo" draggable="false"><div class="info"></div></a>
 	`;
-}
 
-const SECONDS_IN_DAY = 24 * 60 * 60;
-const SECONDS_IN_HOUR = 60 * 60;
-const SECONDS_IN_MINUTE = 60;
-
-function convertTime(time) {
-	const days = Math.floor(time / SECONDS_IN_DAY);
-	const hours = Math.floor((time % SECONDS_IN_DAY) / SECONDS_IN_HOUR);
-	const minutes = Math.floor((time % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
-	const seconds = Math.floor(time % SECONDS_IN_MINUTE);
-
-	let formattedTime = "";
-
-	// only show applicable time units
-	if (days > 0) formattedTime += `${days}d `;
-	if (hours > 0) formattedTime += `${hours}h `;
-	if (minutes > 0 || hours > 0) formattedTime += `${minutes}m `;
-
-	formattedTime += `${seconds.toString()}s`; // add seconds
-	return formattedTime; // return formatted time string
+	// asynchronously load map images, not replacing if they can't be found
+	(() => {
+		"use strict";
+		const mapElement = serverElement.getElementsByClassName("serverMap")[0];
+		const img = new Image();
+		img.src = mapElement.dataset.src;
+		img.onload = () => {
+			mapElement.classList.remove('asyncImage');
+			mapElement.src = mapElement.dataset.src;
+		};
+	})();
 }
