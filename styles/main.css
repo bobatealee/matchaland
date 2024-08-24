@@ -780,6 +780,10 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	}
 }
 
+.gameMode .server {
+	width:100% !important;
+}
+
 .serverTitle {
 	display:flex;
 	height:100%;
@@ -821,6 +825,10 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	.serverMap {
 		width:100%;
 	}
+}
+
+.gameMode .serverMap {
+	width:100% !important;
 }
 
 .serverMapName {
