@@ -77,16 +77,20 @@ const serverList = [
 	}
 ];
 
+// general variables
+var resources = "https://resources.matchaland.net";
+var hostname = "play.matchaland.net";
+
+// preload images
+new Image().src = resources+"/status/offline.png";
+new Image().src = resources+"/status/online.png";
+new Image().src = resources+"/games/unknown.png";
+new Image().src = resources+"/maps/unknown.png";
+
 // loop through every server
 document.addEventListener('DOMContentLoaded', (event) => {
 	serverList.forEach(server => listServer(server));
 });
-
-// preload images
-new Image().src = "https://resources.matchaland.net/status/offline.png";
-new Image().src = "https://resources.matchaland.net/status/online.png";
-new Image().src = "https://resources.matchaland.net/games/unknown.png";
-new Image().src = "https://resources.matchaland.net/maps/unknown.png";
 
 // generate dummy server entries
 function listServer(server) {
@@ -110,13 +114,13 @@ function listServer(server) {
 	serverElement.innerHTML =
 	`
 		<div class="serverTitle">
-			<img class="serverStatus" src="https://resources.matchaland.net/status/offline.png" />
-			<img class="serverGame" src="https://resources.matchaland.net/games/${serverGame}.png" onerror="this.onerror=null; this.src='https://resources.matchaland.net/games/unknown.png';" />
+			<img class="serverStatus" src="${resources}/status/offline.png" draggable="false" />
+			<img class="serverGame" src="${resources}/games/${serverGame}.png" onerror="this.onerror=null; this.src='${resources}/games/unknown.png';" draggable="false" />
 			<div>${serverName}</div>
 		</div>
 		
 		<div class="serverContent">
-			<img class="serverMap" src="https://resources.matchaland.net/maps/unknown.png" />
+			<img class="serverMap" src="${resources}/maps/unknown.png" draggable="false" />
 			<div class="serverMapName"><b>Map:</b> ---</div>
 			<div class="serverPlayers"><b>Players:</b> ---</div>
 		</div>
@@ -143,10 +147,10 @@ function displayServerData(data, serverId, serverGame, serverOverrideMap, server
 
 	// set updated server info
 	// server returned data, so it's online
-	serverElement.getElementsByClassName("serverStatus")[0].src = "https://resources.matchaland.net/status/online.png";
+	serverElement.getElementsByClassName("serverStatus")[0].src = resources+"/status/online.png";
 
 	serverElement.getElementsByClassName("serverStatus")[0].classList.add("asyncImage");
-	serverElement.getElementsByClassName("serverMap")[0].dataset.src = "https://resources.matchaland.net/maps/"+serverGame+"/"+serverMap+".png";
+	serverElement.getElementsByClassName("serverMap")[0].dataset.src = resources+"/maps/"+serverGame+"/"+serverMap+".png";
 
 	serverElement.getElementsByClassName("serverMapName")[0].innerHTML = "<b>Map:</b> "+serverMap;
 	serverElement.getElementsByClassName("serverMapName")[0].title = serverMap;
@@ -160,6 +164,8 @@ function displayServerData(data, serverId, serverGame, serverOverrideMap, server
 
 	// only show bots if there are any
 	const numOfBots = data.numBots > 0 ? ` (${data.numBots} Bots)` : "";
+	// player count, hovering when players are online shows a list
+	// TODO: title attribute not mobile friendly
 	serverElement.getElementsByClassName("serverPlayers")[0].innerHTML = "<b>Players:</b> "+data.numHumans+"/"+data.maxClients+" "+numOfBots;
 	serverElement.getElementsByClassName("serverPlayers")[0].title = playerListTable;
 	if (data.numHumans > 0) {
@@ -170,7 +176,7 @@ function displayServerData(data, serverId, serverGame, serverOverrideMap, server
 	// servers with a dynmap field will replace the connect button with a copy ip button, and assumes that the hostname is yours - be mindful
 	serverElement.getElementsByClassName("serverButtons")[0].innerHTML =
 	`
-		<a ${serverDynmap ? "" : `href="steam://connect/${data.serverIP}"`} ${serverDynmap ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, 'play.matchaland.net')}');"` : ""} class="serverButton serverConnect" draggable="false">${serverDynmap ? "Copy IP" : "Connect"}</a>
+		<a ${serverDynmap ? "" : `href="steam://connect/${data.serverIP}"`} ${serverDynmap ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, hostname)}');"` : ""} class="serverButton serverConnect" draggable="false">${serverDynmap ? "Copy IP" : "Connect"}</a>
 		${serverDynmap ? `<a href="${serverDynmap}" class="serverButton serverDynmap" draggable="false"><div class="dynmap"></div></a>` : ""}
 		<a href="${serverId}" class="serverButton serverInfo" draggable="false"><div class="info"></div></a>
 	`;
