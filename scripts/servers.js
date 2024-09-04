@@ -77,6 +77,16 @@ const serverList = [
 	}
 ];
 
+// list of Steam games
+const steamGames = [
+	"tf2",
+	"tf2classic",
+	"tfc",
+	"hldm",
+	"dmc",
+	"svencoop"
+];
+
 // general variables
 var resources = "https://resources.matchaland.net";
 var hostname = "play.matchaland.net";
@@ -126,7 +136,7 @@ function listServer(server) {
 		</div>
 
 		<div class="serverButtons">
-			<a href="" class="serverButton serverInfo" style="width:100%;" draggable="false"><div class="info"></div></a>
+			<a href="${serverId}" class="serverButton serverInfo" style="width:100%;" draggable="false"><div class="info"></div></a>
 		</div>
 	`
 
@@ -142,8 +152,9 @@ function listServer(server) {
 
 // display server data once fetched
 function displayServerData(data, serverId, serverGame, serverOverrideMap, serverDynmap) {
-	const serverMap = (serverOverrideMap ? serverOverrideMap : data.currentMap)
+	const serverMap = (serverOverrideMap ? serverOverrideMap : data.currentMap);
 	const serverElement = document.getElementById(serverId);
+	const canConnect = steamGames.includes(serverGame);
 
 	// set updated server info
 	// server returned data, so it's online
@@ -173,10 +184,10 @@ function displayServerData(data, serverId, serverGame, serverOverrideMap, server
 	}
 
 	// server buttons, done a little differently because of how dynamic they can be
-	// servers with a dynmap field will replace the connect button with a copy ip button, and assumes that the hostname is yours - be mindful
+	// servers that host a Steam game will replace the copy ip button with a connect button
 	serverElement.getElementsByClassName("serverButtons")[0].innerHTML =
 	`
-		<a ${serverDynmap ? "" : `href="steam://connect/${data.serverIP}"`} ${serverDynmap ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, hostname)}');"` : ""} class="serverButton serverConnect" draggable="false">${serverDynmap ? "Copy IP" : "Connect"}</a>
+		<a ${canConnect ? `href="steam://connect/${data.serverIP}"` : ""} ${canConnect ? "" : `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, hostname)}');"`} class="serverButton serverConnect" draggable="false">${canConnect ? "Connect" : "Copy IP"}</a>
 		${serverDynmap ? `<a href="${serverDynmap}" class="serverButton serverDynmap" draggable="false"><div class="dynmap"></div></a>` : ""}
 		<a href="${serverId}" class="serverButton serverInfo" draggable="false"><div class="info"></div></a>
 	`;
