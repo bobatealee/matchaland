@@ -125,12 +125,12 @@ function createServerElement(server) {
 	// populate entry with temp info
 	serverElement.innerHTML = `
 			<div class="serverTitle">
-				<img class="serverStatus" src="${RESOURCES_URL}/status/offline.png" alt="Server Status" draggable="false">
+				<img class="serverStatus" src="${RESOURCES_URL}/status/offline.png" alt="status" draggable="false">
 				<img class="serverGame" src="${RESOURCES_URL}/games/${serverGame}.png" alt="${serverGame}" onerror="this.onerror=null; this.src='${RESOURCES_URL}/games/unknown.png';" draggable="false">
 				<div>${name}</div>
 			</div>
 			<div class="serverContent">
-				<img class="serverMap asyncImage" src="${RESOURCES_URL}/maps/unknown.png" alt="Server Map" draggable="false">
+				<img class="serverMap asyncImage" src="${RESOURCES_URL}/maps/unknown.png" alt="map" draggable="false">
 				<div class="serverMapName"><b>Map:</b> ---</div>
 				<div class="serverPlayers"><b>Players:</b> ---</div>
 			</div>
@@ -166,7 +166,7 @@ function updateServerElement(data, server, serverElement) {
 	mapImage.dataset.src = `${RESOURCES_URL}/maps/${server.overrideGame || server.game}/${serverMap}.png`;
 	loadMapImage(mapImage);
 
-	serverElement.querySelector(".serverMapName").textContent = `Map: ${serverMap}`;
+	serverElement.querySelector(".serverMapName").innerHTML = `<b>Map:</b> ${serverMap}`;
 	serverElement.querySelector(".serverMapName").title = serverMap;
 
 	// server player list
