@@ -154,7 +154,7 @@ function fetchServerData(server, serverElement) {
 function updateServerElement(data, server, serverElement) {
 	const { overrideMap, dynmap } = server;
 	const serverMap = overrideMap || data.currentMap;
-	const canConnect = steamGames.includes(server.game);
+	const canConnect = steamGames.includes(server.overrideGame || server.game);
 
 	// set updated server info
 	// server returned data, so it's online
@@ -166,8 +166,7 @@ function updateServerElement(data, server, serverElement) {
 	mapImage.dataset.src = `${RESOURCES_URL}/maps/${server.overrideGame || server.game}/${serverMap}.png`;
 	loadMapImage(mapImage);
 
-	serverElement.querySelector(".serverMapName").textContent =
-		`Map: ${serverMap}`;
+	serverElement.querySelector(".serverMapName").textContent = `Map: ${serverMap}`;
 	serverElement.querySelector(".serverMapName").title = serverMap;
 
 	// server player list
@@ -185,10 +184,7 @@ function updateServerElement(data, server, serverElement) {
 	// server buttons
 	// servers that host a Steam game will replace the copy ip button with a connect button
 	const buttonsHtml = `
-			<a href="${canConnect ? `steam://connect/${data.serverIP}` : "#"}" 
-			 class="serverButton serverConnect" 
-			 ${!canConnect ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, HOSTNAME)}');"` : ""}
-			 draggable="false">
+			<a ${canConnect ? `href="steam://connect/${data.serverIP}"` : ""} class="serverButton serverConnect" ${!canConnect ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, HOSTNAME)}');"` : ""} draggable="false">
 				${canConnect ? "Connect" : "Copy IP"}
 			</a>
 			${dynmap ? `<a href="${dynmap}" class="serverButton serverDynmap" draggable="false"><div class="dynmap"></div></a>` : ""}
