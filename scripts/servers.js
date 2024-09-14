@@ -153,8 +153,23 @@ function fetchServerData(server, serverElement) {
 // display server data once fetched
 function updateServerElement(data, server, serverElement) {
 	const { overrideMap, dynmap } = server;
-	const serverMap = overrideMap || data.currentMap;
 	const canConnect = steamGames.includes(server.overrideGame || server.game);
+  
+	// check if server is offline/has an error
+	if (data.error) {
+		serverElement.querySelector(".serverStatus").src = `${RESOURCES_URL}/status/offline.png`;
+
+		const mapImage = serverElement.querySelector(".serverMap");
+		mapImage.dataset.src = `${RESOURCES_URL}/maps/offline.png`;
+		loadMapImage(mapImage);
+
+		serverElement.querySelector(".serverMapName").textContent = "Map: Offline";
+    
+		const playersElement = serverElement.querySelector(".serverPlayers");
+		playersElement.innerHTML = "<b>Players:</b> N/A";
+
+		return;
+	}
 
 	// set updated server info
 	// server returned data, so it's online
@@ -162,6 +177,7 @@ function updateServerElement(data, server, serverElement) {
 		`${RESOURCES_URL}/status/online.png`;
 
 	// update map image
+	const serverMap = overrideMap || data.currentMap;
 	const mapImage = serverElement.querySelector(".serverMap");
 	mapImage.dataset.src = `${RESOURCES_URL}/maps/${server.overrideGame || server.game}/${serverMap}.png`;
 	loadMapImage(mapImage);
