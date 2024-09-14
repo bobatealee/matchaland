@@ -780,6 +780,10 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	}
 }
 
+.offline.server {
+	background-color:#3E3E3E;
+}
+
 .gameMode .server {
 	width:100% !important;
 }
@@ -805,6 +809,10 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	margin-right:10px;
 }
 
+.offline .serverGame {
+	filter:saturate(0);
+}
+
 .serverContent {
 	margin-top:8px;
 	position:relative;
@@ -826,6 +834,10 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	.serverMap {
 		width:100%;
 	}
+}
+
+.offline .serverMap {
+	filter:saturate(0);
 }
 
 .gameMode .serverMap {
@@ -894,6 +906,11 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	margin-right:0px !important;
 }
 
+.offline .serverButton {
+	background-color:#3E3E3E;
+	box-shadow:1px 1px #000000, -1px -1px #999999;
+}
+
 .serverConnect {
 	width: 100%;
 	cursor:pointer;
@@ -947,4 +964,8 @@ a.serverButton:hover .info, a.serverButton:hover .dynmap {
 
 a.serverButton:active {
 	box-shadow:-1px -1px #000000, 1px 1px #809AB2;
+}
+
+.offline a.serverButton:active {
+	box-shadow:-1px -1px #000000, 1px 1px #999999;
 }

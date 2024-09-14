@@ -157,16 +157,10 @@ function updateServerElement(data, server, serverElement) {
   
 	// check if server is offline/has an error
 	if (data.error) {
-		serverElement.querySelector(".serverStatus").src = `${RESOURCES_URL}/status/offline.png`;
+		serverElement.classList.add("offline");
 
-		const mapImage = serverElement.querySelector(".serverMap");
-		mapImage.dataset.src = `${RESOURCES_URL}/maps/offline.png`;
-		loadMapImage(mapImage);
-
-		serverElement.querySelector(".serverMapName").textContent = "Map: Offline";
-    
-		const playersElement = serverElement.querySelector(".serverPlayers");
-		playersElement.innerHTML = "<b>Players:</b> N/A";
+		serverElement.querySelector(".serverMapName").innerHTML = "<b>Offline!</b>";
+		serverElement.querySelector(".serverPlayers").innerHTML = "";
 
 		return;
 	}
