@@ -3,7 +3,7 @@ const serverList = [
 	{
 		id: "minecraft",
 		name: "matchaland.net | Minecraft 1.21.1 Survival",
-		ip: "199.247.78.239:10010",
+		ip: "play.matchaland.net:10010",
 		game: "minecraft",
 		overrideMap: "matchaland",
 		dynmap: "http://play.matchaland.net:10015/?mapname=surface&zoom=3",
@@ -11,7 +11,7 @@ const serverList = [
 	{
 		id: "minecraft_creative",
 		name: "matchaland.net | Minecraft 1.21.1 Creative",
-		ip: "199.247.78.239:10020",
+		ip: "play.matchaland.net:10020",
 		game: "minecraft",
 		overrideMap: "matchaland_creative",
 		dynmap: "http://play.matchaland.net:10025/?mapname=surface&zoom=3",
@@ -19,7 +19,7 @@ const serverList = [
 	{
 		id: "minecraft_beta",
 		name: "matchaland.net | Minecraft b1.7.3 Survival",
-		ip: "199.247.78.239:11011",
+		ip: "play.matchaland.net:11011",
 		game: "minecraftbeta",
 		overrideMap: "matchaland_beta",
 		dynmap: "http://play.matchaland.net:11015/?mapname=surface&zoom=3",
@@ -27,52 +27,52 @@ const serverList = [
 	{
 		id: "tf2_standard1",
 		name: "matchaland.net | TF2 Standard Maps",
-		ip: "199.247.78.239:20010",
+		ip: "play.matchaland.net:20010",
 		game: "tf2",
 	},
 	{
 		id: "tf2_custom1",
 		name: "matchaland.net | TF2 Custom Maps",
-		ip: "199.247.78.239:20020",
+		ip: "play.matchaland.net:20020",
 		game: "tf2",
 	},
 	{
 		id: "tf2_grabbag1",
 		name: "matchaland.net | TF2 Grab Bag",
-		ip: "199.247.78.239:20030",
+		ip: "play.matchaland.net:20030",
 		game: "tf2",
 	},
 	{
 		id: "tf2_mvm1",
 		name: "matchaland.net | TF2 MvM",
-		ip: "199.247.78.239:20040",
+		ip: "play.matchaland.net:20040",
 		game: "tf2",
 	},
 	{
 		id: "tf2classic_standard1",
 		name: "matchaland.net | TF2C Standard Maps",
-		ip: "199.247.78.239:21010",
+		ip: "play.matchaland.net:21010",
 		game: "hl2dm",
 		overrideGame: "tf2classic",
 	},
 	{
 		id: "tf2classic_custom1",
 		name: "matchaland.net | TF2C Custom Maps",
-		ip: "199.247.78.239:21020",
+		ip: "play.matchaland.net:21020",
 		game: "hl2dm",
 		overrideGame: "tf2classic",
 	},
 	{
 		id: "tf2classic_grabbag1",
 		name: "matchaland.net | TF2C Grab Bag",
-		ip: "199.247.78.239:21030",
+		ip: "play.matchaland.net:21030",
 		game: "hl2dm",
 		overrideGame: "tf2classic",
 	},
 	{
 		id: "dmc",
 		name: "matchaland.net | DMC Grab Bag",
-		ip: "199.247.78.239:30010",
+		ip: "play.matchaland.net:30010",
 		game: "dmc",
 	},
 ];
@@ -83,7 +83,7 @@ const steamGames = ["tf2", "tf2classic", "dmc"];
 // general variables
 const RESOURCES_URL = "https://resources.matchaland.net";
 const HOSTNAME = "play.matchaland.net";
-const API_BASE_URL = "https://api.raccoonlagoon.com/v1/server-info";
+const API_BASE_URL = "https://api.raccoonlagoon.com/v1/";
 
 // preload critical images
 function preloadImages(...urls) {
@@ -100,6 +100,27 @@ preloadImages(
 	`${RESOURCES_URL}/games/unknown.png`,
 	`${RESOURCES_URL}/maps/unknown.png`,
 );
+
+// fetch base IP
+var baseIP = HOSTNAME;
+function fetchBaseIP() {
+	const url = `${API_BASE_URL}resolve-dns?hostname=${HOSTNAME}`;
+	fetch(url)
+		.then((response) => response.json())
+		.then((data) => updateConnectLinks(data))
+		.catch((error) => console.error("Error fetching IP:", error));
+}
+
+// update base IP and any existing elements
+function updateConnectLinks(data) {
+	if (!data.error) {
+		baseIP = data.address;
+
+		document.querySelectorAll(".steam").forEach((connectElement) => {
+			connectElement.href = connectElement.href.replace(HOSTNAME, baseIP);
+		});
+	}
+}
 
 // main function to initialize the server list
 function initializeServerList() {
@@ -143,7 +164,7 @@ function createServerElement(server) {
 
 // fetch server data from api
 function fetchServerData(server, serverElement) {
-	const url = `${API_BASE_URL}?ip=${server.ip}&g=${server.game}`;
+	const url = `${API_BASE_URL}server-info?ip=${server.ip}&g=${server.game}`;
 	fetch(url)
 		.then((response) => response.json())
 		.then((data) => updateServerElement(data, server, serverElement))
@@ -194,7 +215,7 @@ function updateServerElement(data, server, serverElement) {
 	// server buttons
 	// servers that host a Steam game will replace the copy ip button with a connect button
 	const buttonsHtml = `
-			<a ${canConnect ? `href="steam://connect/${data.serverIP}"` : ""} class="serverButton serverConnect" ${!canConnect ? `onclick="navigator.clipboard.writeText('${data.serverIP.replace(/^[^:]*/, HOSTNAME)}');"` : ""} draggable="false">
+			<a ${canConnect ? `href="steam://connect/${baseIP+data.serverIP.replace(HOSTNAME, "")}"` : ""} class="serverButton serverConnect${canConnect ? ` steam` : ""}" ${!canConnect ? `onclick="navigator.clipboard.writeText('${data.serverIP}');"` : ""} draggable="false">
 				${canConnect ? "Connect" : "Copy IP"}
 			</a>
 			${dynmap ? `<a href="${dynmap}" class="serverButton serverDynmap" draggable="false"><div class="dynmap"></div></a>` : ""}
@@ -218,4 +239,7 @@ function loadMapImage(mapElement) {
 }
 
 // initialize on DOM load
-document.addEventListener("DOMContentLoaded", initializeServerList);
+document.addEventListener("DOMContentLoaded", (event) => {
+	fetchBaseIP();
+	initializeServerList();
+});

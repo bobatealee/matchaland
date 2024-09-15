@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.19.0";
+var version = "2.20.0";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -8,14 +8,14 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 var gameMode = params.game;
 
-document.addEventListener('DOMContentLoaded', (event) => {
-	document.getElementById("dividerButton").addEventListener('click', dividerToggle);
+document.addEventListener("DOMContentLoaded", (event) => {
+	document.getElementById("dividerButton").addEventListener("click", dividerToggle);
 
 	if (gameMode == 1) {
 		document.documentElement.classList.add("gameMode");
 
 		document.querySelectorAll(".siteLink").forEach((siteLink) => {
-			siteLink.href = siteLink.href+"?game=1"
+			siteLink.href = siteLink.href+"?game=1";
 		});
 
 		document.querySelectorAll(".external").forEach((link) => {
