@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.20.0";
+var version = "2.20.1";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 
 	// notice; comment out as necessary
-	// document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• We now have a Discord server! Join now at https://discord.gg/B6SP6Q2qsf •</marquee></div></div>');
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Sourcemod is currently disabled on our TF2 servers due to the Halloween update. Sorry for the inconvenience! •</marquee></div></div>');
 });
 
 // preload images
