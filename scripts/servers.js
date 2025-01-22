@@ -50,14 +50,14 @@ const serverList = [
 	},
 	{
 		id: "tf2classic_standard1",
-		name: "matchaland.net | TF2C Standard Maps",
+		name: "matchaland.net | TF2C Standard Maps #1",
 		ip: "play.matchaland.net:21010",
 		game: "hl2dm",
 		overrideGame: "tf2classic",
 	},
 	{
-		id: "tf2classic_custom1",
-		name: "matchaland.net | TF2C Custom Maps",
+		id: "tf2classic_standard2",
+		name: "matchaland.net | TF2C Standard Maps #2",
 		ip: "play.matchaland.net:21020",
 		game: "hl2dm",
 		overrideGame: "tf2classic",
