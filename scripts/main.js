@@ -1,6 +1,6 @@
 // variables
 var year = "2025";
-var version = "2.21.0";
+var version = "2.22.0";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -26,7 +26,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 
 	// notice; comment out as necessary
-	// document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Sourcemod is currently disabled on our TF2 servers due to the Halloween update. Sorry for the inconvenience! •</marquee></div></div>');
+	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Server maintenance is scheduled <span class="countdown" timestamp="1738619100"></span>. •</marquee></div></div>');
+
+	countdown();
+	
+	var countdownTimer = setInterval(function() {
+		countdown();
+	}, 1000);
 });
 
 // preload images
@@ -54,4 +60,26 @@ function dividerToggle() {
 		document.getElementById("sidebar").classList.add("show");
 		document.getElementById("dividerButton").innerHTML = "Links ▲";
 	}
+}
+
+// countdown
+function countdown() {
+	var now = new Date().getTime();
+	var string = "";
+
+	document.querySelectorAll(".countdown").forEach((countdownElement) => {
+		var then = countdownElement.getAttribute("timestamp") * 1000;
+		var distance = then - now;
+
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		if (distance > 0) {
+			string = "in "+ hours + "h " + minutes + "m " + seconds + "s";
+		} else {
+			string = "now";	
+		}
+		countdownElement.innerHTML = string;
+	});
 }

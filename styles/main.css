@@ -20,7 +20,7 @@ html, body {
 	color:#000000;
 	font-size:16px;
 	font-family:'Alata', monospace;
-
+	image-rendering:pixelated;
 }
 
 * {
@@ -339,7 +339,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	align-items:center;
 	position:relative;
 	text-decoration:none;
-	box-shadow:1px 1px #000000, -1px -1px #4B5466;
+	box-shadow:inset 2px 2px #4B5466, inset -2px -2px #000000;
 	user-select:none;
 	height:80px;
 	margin:10px 25px 10px 5px;
@@ -382,12 +382,12 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 
 @media (max-width:850px) {
 	.navButton:hover {
-		box-shadow:-1px -1px #000000, 1px 1px #4B5466;
+		box-shadow:inset 2px 2px #000000, inset -2px -2px #4B5466;
 	}
 }
 
 .navButton:active {
-	box-shadow:-1px -1px #000000, 1px 1px #4B5466;
+	box-shadow:inset 2px 2px #000000, inset -2px -2px #4B5466;
 }
 
 @media (max-width:850px) {
@@ -579,7 +579,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	text-decoration:none;
 	font-size:24px;
 	font-family:'Quicksand', monospace;
-	box-shadow:1px 1px #000000, -1px -1px #495263;
+	box-shadow:inset 2px 2px #495263, inset -2px -2px #000000;
 	user-select:none;
 	text-shadow:1px 1px #000000, 2px 2px #000000;
 }
@@ -590,12 +590,12 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 
 @media (max-width:850px) {
 	.sidebarButton:hover {
-		box-shadow:-1px -1px #000000, 1px 1px #495263;
+		box-shadow:inset 2px 2px #000000, inset -2px -2px #495263;
 	}
 }
 
 .sidebarButton:active {
-	box-shadow:-1px -1px #000000, 1px 1px #495263;
+	box-shadow:inset 2px 2px #000000, inset -2px -2px #495263;
 }
 
 #sidebarBanners {
@@ -651,7 +651,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 }
 
 .textboxContent {
-	background:linear-gradient(45deg, transparent 15px, rgba(0, 0, 0, 0.25) 15px);
+	background:linear-gradient(45deg, transparent 15px, rgba(0, 0, 0, 0.15) 15px);
 	padding:10px 30px 15px;
 	font-size:24px;
 }
