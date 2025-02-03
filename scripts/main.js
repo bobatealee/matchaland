@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 
 	// notice; comment out as necessary
-	document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Server maintenance is scheduled <span class="countdown" timestamp="1738619100"></span>. •</marquee></div></div>');
+	/*document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Server maintenance is scheduled <span class="countdown" timestamp="1738619100"></span>. •</marquee></div></div>');
 
 	countdown();
 	
 	var countdownTimer = setInterval(function() {
 		countdown();
-	}, 1000);
+	}, 1000);*/
 });
 
 // preload images
