@@ -64,22 +64,23 @@ function dividerToggle() {
 
 // countdown
 function countdown() {
-	var now = new Date().getTime();
-	var string = "";
-
+	const now = new Date().getTime();
+	
 	document.querySelectorAll(".countdown").forEach((countdownElement) => {
-		var then = countdownElement.getAttribute("timestamp") * 1000;
-		var distance = then - now;
-
-		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-		if (distance > 0) {
-			string = "in "+ hours + "h " + minutes + "m " + seconds + "s";
-		} else {
-			string = "now";	
-		}
-		countdownElement.innerHTML = string;
+		const then = countdownElement.getAttribute("timestamp") * 1000;
+		const distance = then - now;
+	  
+		if (distance <= 0) {
+			countdownElement.innerHTML = "now";
+			return;
+	  	}
+  
+		const totalSeconds = Math.floor(distance / 1000);
+	  
+		const hours = Math.floor(totalSeconds / 3600);
+		const minutes = Math.floor((totalSeconds % 3600) / 60);
+		const seconds = totalSeconds % 60;
+  
+		countdownElement.innerHTML = `in ${hours}h ${minutes}m ${seconds}s`;
 	});
 }
