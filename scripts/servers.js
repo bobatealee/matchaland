@@ -44,7 +44,7 @@ const serverList = [
 	},
 	{
 		id: "tf2_mvm1",
-		name: "matchaland.net | TF2 MvM",
+		name: "matchaland.net | TF2 Mann vs. Machine",
 		ip: "play.matchaland.net:20040",
 		game: "tf2",
 	},
