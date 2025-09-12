@@ -123,8 +123,10 @@ code {
 
 /* SCROLLBAR */
 
-html {
-	scrollbar-color:#FF9600 #222E57;
+@supports (not selector(::-webkit-scrollbar)) {
+	html {
+		scrollbar-color:#FF9600 #222E57;
+	}
 }
 
 html::-webkit-scrollbar {
@@ -799,6 +801,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	width:16px;
 	height:16px;
 	margin-right:5px;
+	image-rendering:initial;
 }
 
 .serverGame {
@@ -807,6 +810,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 	min-height:32px;
 	height:32px;
 	margin-right:10px;
+	image-rendering:initial;
 }
 
 .offline .serverGame {
@@ -928,6 +932,7 @@ html::-webkit-scrollbar-button:single-button:vertical:increment {
 
 .serverInfo, .serverDynmap {
 	min-width:40px;
+	image-rendering:initial;
 }
 
 .gameMode .serverInfo {
