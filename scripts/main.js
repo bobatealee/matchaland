@@ -1,5 +1,5 @@
 // variables
-var year = "2025";
+var year = "2026";
 var version = "2.22.0";
 
 // game mode check
