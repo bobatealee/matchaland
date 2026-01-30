@@ -49,18 +49,25 @@ const serverList = [
 		game: "tf2",
 	},
 	{
-		id: "tf2classic_standard1",
-		name: "matchaland.net | TF2C Standard Maps",
+		id: "tf2classified_standard1",
+		name: "matchaland.net | TF2 Classified Standard 1",
 		ip: "play.matchaland.net:21010",
-		game: "hl2dm",
-		overrideGame: "tf2classic",
+		game: "tf2",
+		overrideGame: "tf2classified",
 	},
 	{
-		id: "tf2classic_grabbag1",
-		name: "matchaland.net | TF2C Grab Bag",
+		id: "tf2classified_standard2",
+		name: "matchaland.net | TF2 Classified Standard 2",
 		ip: "play.matchaland.net:21020",
-		game: "hl2dm",
-		overrideGame: "tf2classic",
+		game: "tf2",
+		overrideGame: "tf2classified",
+	},
+	{
+		id: "tf2classified_standard3",
+		name: "matchaland.net | TF2 Classified Standard 3",
+		ip: "play.matchaland.net:21030",
+		game: "tf2",
+		overrideGame: "tf2classified",
 	},
 	{
 		id: "dmc",
@@ -71,7 +78,7 @@ const serverList = [
 ];
 
 // list of Steam games, for direct connection
-const steamGames = ["tf2", "tf2classic", "dmc"];
+const steamGames = ["tf2", "tf2classified", "dmc"];
 
 // general variables
 const RESOURCES_URL = "https://resources.matchaland.net";
