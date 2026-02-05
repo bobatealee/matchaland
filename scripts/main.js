@@ -1,6 +1,5 @@
 // variables
 var year = "2026";
-var version = "2.22.0";
 
 // game mode check
 const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		});
 	}
 
-	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
+	document.getElementById("footerContent").innerHTML = '© 2020-'+year+' boba';
 
 	// notice; comment out as necessary
 	/*document.getElementById('container').insertAdjacentHTML('beforebegin', '<div id="notice"><div id="noticeInner"><marquee>• Server maintenance is scheduled <span class="countdown" timestamp="1738619100"></span>. •</marquee></div></div>');
