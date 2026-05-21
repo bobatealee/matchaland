@@ -2,19 +2,19 @@
 const serverList = [
 	{
 		id: "minecraft",
-		name: "matchaland.net | Minecraft 1.21.11 Survival",
+		name: "matchaland.net | Minecraft 26.1.2 Survival",
 		ip: "play.matchaland.net:10010",
 		game: "minecraft",
 		overrideMap: "matchaland",
-		dynmap: "http://play.matchaland.net:10015/?mapname=surface&zoom=3",
+		dynmap: "http://play.matchaland.net:10015/?world=minecraft_overworld&zoom=3",
 	},
 	{
 		id: "minecraft_creative",
-		name: "matchaland.net | Minecraft 1.21.11 Creative",
+		name: "matchaland.net | Minecraft 26.1.2 Creative",
 		ip: "play.matchaland.net:10020",
 		game: "minecraft",
 		overrideMap: "matchaland_creative",
-		dynmap: "http://play.matchaland.net:10025/?mapname=surface&zoom=3",
+		dynmap: "http://play.matchaland.net:10025/?world=minecraft_overworld&zoom=3",
 	},
 	{
 		id: "minecraft_beta",
