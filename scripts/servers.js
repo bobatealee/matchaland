@@ -6,7 +6,7 @@ const serverList = [
 		ip: "play.matchaland.net:10010",
 		game: "minecraft",
 		overrideMap: "matchaland",
-		dynmap: "http://play.matchaland.net:10015/?world=minecraft_overworld&zoom=3",
+		dynmap: "https://survival.matchaland.net/?world=minecraft_overworld&zoom=3",
 	},
 	{
 		id: "minecraft_creative",
@@ -14,7 +14,7 @@ const serverList = [
 		ip: "play.matchaland.net:10020",
 		game: "minecraft",
 		overrideMap: "matchaland_creative",
-		dynmap: "http://play.matchaland.net:10025/?world=minecraft_overworld&zoom=3",
+		dynmap: "https://creative.matchaland.net/?world=minecraft_overworld&zoom=3",
 	},
 	{
 		id: "minecraft_beta",
@@ -22,7 +22,7 @@ const serverList = [
 		ip: "play.matchaland.net:11011",
 		game: "minecraftbeta",
 		overrideMap: "matchaland_beta",
-		dynmap: "http://play.matchaland.net:11015/?mapname=surface&zoom=3",
+		dynmap: "https://beta.matchaland.net/?mapname=surface&zoom=3",
 	},
 	{
 		id: "tf2_standard1",
